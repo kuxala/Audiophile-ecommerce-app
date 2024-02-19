@@ -1,4 +1,7 @@
 import "../styles/ProductPage.css";
+import LastSection from "./LastSection";
+import ProductShocase from "./ProductShocase";
+import SpeakersShowcase from "./SpeakersShowcase";
 
 function ProductPage() {
   return (
@@ -12,66 +15,9 @@ function ProductPage() {
         </p>
         <button className="yellow-btn button">SEE PRODUCT</button>
       </div>
-
-      <div className="product-shop-section">
-        <div className="product-shop">
-          <img
-            src="../../assets\shared\desktop\image-category-thumbnail-headphones.png"
-            width="150px"
-            className="product-image-small"
-          />
-          <h3 className="product-shop-name">HEADPHONES</h3>
-
-          <div>
-            <p className="product-shop-a">
-              Shop
-              <img
-                src="../../assets/shared/desktop/icon-arrow-right.svg"
-                className="right-arrow"
-                height="12px"
-              />
-            </p>
-          </div>
-        </div>
-        <div className="product-shop">
-          <img
-            src="../../assets\shared\desktop\image-category-thumbnail-speakers.png"
-            width="150px"
-            className="product-image-small"
-          />
-          <h3 className="product-shop-name">SPEAKERS</h3>
-
-          <div>
-            <p className="product-shop-a">
-              Shop
-              <img
-                src="../../assets/shared/desktop/icon-arrow-right.svg"
-                className="right-arrow"
-                height="12px"
-              />
-            </p>
-          </div>
-        </div>
-        <div className="product-shop">
-          <img
-            src="../../assets\shared\desktop\image-category-thumbnail-earphones.png"
-            width="150px"
-            className="product-image-small"
-          />
-          <h3 className="product-shop-name">EARPHONES</h3>
-
-          <div>
-            <p className="product-shop-a">
-              Shop
-              <img
-                src="../../assets/shared/desktop/icon-arrow-right.svg"
-                className="right-arrow"
-                height="12px"
-              />
-            </p>
-          </div>
-        </div>
-      </div>
+      <ProductShocase />
+      <SpeakersShowcase />
+      <LastSection />
     </>
   );
 }
