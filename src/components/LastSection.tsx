@@ -13,6 +13,7 @@ const LastSectionDiv = styled.div`
 `;
 const H1 = styled.h1`
   padding-top: 32px;
+  padding-bottom: 24px;
   color: #000;
   text-align: center;
   font-family: Manrope;
