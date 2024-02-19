@@ -1,0 +1,11 @@
+footer{
+    background-color: #191919;;
+}
+
+
+.header-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 24px;
+}
