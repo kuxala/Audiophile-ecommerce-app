@@ -3,3 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.yellow-btn {
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+    background: #D87D4A;
+    border: 0px;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.yellow-btn:hover{
+    background: #FBAF85;
+}
+.white-btn{
+    width: 160px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid #000000;
+}

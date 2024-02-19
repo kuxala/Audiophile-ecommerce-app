@@ -1,0 +1,114 @@
+.product-header{
+    padding-top: 108px;
+    padding-bottom: 18px;
+    color: #FFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+.background {
+    background-image: url("../assets/home/mobile/image-header1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 70vh;
+}
+.product-name{
+    color: #FFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 111.111% */
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+}
+.product-description{
+    padding-top: 28px;
+    padding-bottom: 28px;
+    margin: 0 auto;
+    max-width: 328px;
+    color: #FFF;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+    opacity: 0.75;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+.product-shop-section{
+    margin-top: 80px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column; 
+    gap: 68px;;
+}
+.product-shop{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    /* height: 165px; */
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #F1F1F1;
+
+}
+.product-shop-name{
+    color: #000;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.071px;
+    text-transform: uppercase;
+    padding-bottom: 18px;
+    position: relative;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.product-shop-a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: Manrope;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.product-image-small{
+    position: relative;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}

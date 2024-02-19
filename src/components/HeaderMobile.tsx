@@ -1,9 +1,9 @@
-import "../styles/FooterMobile.css";
+import "../styles/HeaderMobile.css";
 
 interface Props {
   websiteData: any;
 }
-function FooterMobile({ websiteData }: Props) {
+function HeaderMobile() {
   return (
     <>
       <footer>
@@ -16,4 +16,4 @@ function FooterMobile({ websiteData }: Props) {
     </>
   );
 }
-export default FooterMobile;
+export default HeaderMobile;
