@@ -18,7 +18,7 @@ function SpeakersShowcase() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <button className="black-btn button">See product</button>
+            <button className="white-btn button">See product</button>
           </div>
         </div>
 

@@ -22,7 +22,7 @@
 .yellow-btn:hover{
     background: #FBAF85;
 }
-.black-btn{
+/* .black-btn{
     width: 160px;
     height: 48px;
     flex-shrink: 0;
@@ -36,7 +36,7 @@
     line-height: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
-}
+} */
 .white-btn{
     width: 160px;
     height: 48px;
@@ -51,4 +51,9 @@
     line-height: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+.white-btn:hover{
+    background-color: #000;
+    color: #FFF;
+
 }
