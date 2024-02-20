@@ -1,5 +1,4 @@
 import "../styles/ProductPage.css";
-import Footer from "./Footer";
 import LastSection from "./LastSection";
 import ProductShocase from "./ProductShocase";
 import SpeakersShowcase from "./SpeakersShowcase";
@@ -21,7 +20,6 @@ function ProductPage() {
       <ProductShocase />
       <SpeakersShowcase />
       <LastSection />
-      <Footer />
     </>
   );
 }

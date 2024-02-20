@@ -3,10 +3,12 @@ import HeaderMobile from "./components/HeaderMobile";
 import data from "./data.json";
 import ProductPage from "./components/ProductPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Headphones from "./pages/Headphones";
 
 function App() {
   const [websiteData, setWebsiteData] = useState<any>(data);
-  const [screenSize, setScreenSize] = useState({
+  const [screenSize, setScreenSize] = useState<any>({
     width: window.innerWidth,
     height: window.innerHeight,
   });
@@ -28,9 +30,10 @@ function App() {
 
   return (
     <>
-      {/* <HeaderMobile /> */}
       {screenSize.width > 868 ? <Header /> : <HeaderMobile />}
-      <ProductPage />
+      {/* <ProductPage /> */}
+      <Headphones websiteData={websiteData} />
+      <Footer />
     </>
   );
 }

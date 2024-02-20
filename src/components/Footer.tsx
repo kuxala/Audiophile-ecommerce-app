@@ -46,6 +46,7 @@ function Footer() {
   );
 }
 export default Footer;
+
 const BothComponent = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
@@ -54,7 +55,6 @@ const BothComponent = styled.div`
 const LeftText = styled.div`
   @media only screen and (min-width: 768px) {
     width: 50%;
-    padding-left: 50px;
   }
 `;
 const RightSocial = styled.div`
@@ -68,7 +68,8 @@ const RightSocial = styled.div`
 const UpperDiv = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 165px;
     align-items: center;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -138,6 +139,8 @@ const P = styled.p`
     max-width: 540px;
     text-align: left;
     padding-bottom: 24px;
+    margin: 0;
+    margin-left: 165px;
   }
 `;
 const Social = styled.ul`
