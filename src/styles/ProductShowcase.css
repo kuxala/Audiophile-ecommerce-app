@@ -62,3 +62,23 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+@media only screen and (min-width: 768px){
+    .product-shop{
+        width: 30%;
+        max-width: 350px
+    }
+
+    .product-shop-name{
+        position: relative;
+        bottom: 50px;
+
+    }
+    .product-shop-section{
+        display: flex;
+        flex-direction: row; 
+        width: 100%;
+        gap: 30px;
+        
+    }
+}

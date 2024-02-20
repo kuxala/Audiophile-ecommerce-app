@@ -12,7 +12,7 @@ function ProductPage() {
           <p className="product-header">New Product</p>
           <h1 className="product-name">XX99 Mark II HeadphoneS</h1>
           <p className="product-description">
-            Experience natural, lifelike audio and exceptional build quality
+            Experience natural, life like audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
           <button className="yellow-btn button">SEE PRODUCT</button>
