@@ -58,7 +58,37 @@
         background-image: url("../assets/home/desktop/image-hero.jpg");
         background-size: cover;
         background-position: right;
-        
+    }
 
+    .product-name{
+        text-align: left;
+        padding-bottom: 24px;
+        padding-top: 24px;
+    }
+    .product-header{
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        
+    }
+    .product-description{
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        max-width: 350px;
+        padding-bottom: 40px;
+    }
+
+    .button{
+        margin: 0;
+    }
+
+    .whole-div{
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+        height: 70vh;
+        padding-left: 165px;
     }
 }

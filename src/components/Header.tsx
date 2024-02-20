@@ -26,7 +26,9 @@ const Li = styled.li`
 function Header() {
   return (
     <>
-      <header style={{ backgroundColor: "#0E0E0E" }}>
+      <header
+        style={{ backgroundColor: "#191919", borderBottom: "1px solid gray" }}
+      >
         <Nav>
           <img src="../../assets/shared/desktop/logo.svg" width="143px" />
           <Ul>
