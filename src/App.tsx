@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Headphones from "./pages/Headphones";
 import Earphones from "./pages/Earphones";
 import Speakers from "./pages/Speakers";
+import Menu from "./pages/Menu";
 
 function App() {
   const [websiteData, setWebsiteData] = useState<any>(data);
@@ -36,8 +37,9 @@ function App() {
       {/* <ProductPage /> */}
       {/* <Headphones websiteData={websiteData} /> */}
       {/* <Earphones websiteData={websiteData} /> */}
-      <Speakers websiteData={websiteData} />
-      <Footer />
+      {/* <Speakers websiteData={websiteData} /> */}
+      <Menu />
+      {/* <Footer /> */}
     </>
   );
 }
