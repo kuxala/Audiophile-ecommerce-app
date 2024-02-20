@@ -5,6 +5,8 @@ import ProductPage from "./components/ProductPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Headphones from "./pages/Headphones";
+import Earphones from "./pages/Earphones";
+import Speakers from "./pages/Speakers";
 
 function App() {
   const [websiteData, setWebsiteData] = useState<any>(data);
@@ -32,7 +34,9 @@ function App() {
     <>
       {screenSize.width > 868 ? <Header /> : <HeaderMobile />}
       {/* <ProductPage /> */}
-      <Headphones websiteData={websiteData} />
+      {/* <Headphones websiteData={websiteData} /> */}
+      {/* <Earphones websiteData={websiteData} /> */}
+      <Speakers websiteData={websiteData} />
       <Footer />
     </>
   );
