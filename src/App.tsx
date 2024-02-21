@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
 import HeaderMobile from "./components/HeaderMobile";
 import data from "./data.json";
-import ProductPage from "./components/ProductPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Headphones from "./pages/Headphones";
-import Earphones from "./pages/Earphones";
-import Speakers from "./pages/Speakers";
-import Menu from "./pages/Menu";
+import Routers from "./routers/Routers";
+import Menu from "./components/Menu";
+import { createContext, useState, useEffect } from "react";
+
+export const MyContext = createContext<any>(null);
 
 function App() {
   const [websiteData, setWebsiteData] = useState<any>(data);
@@ -15,6 +14,7 @@ function App() {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const [hamburger, sethamburger] = useState<boolean>(false);
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -32,15 +32,16 @@ function App() {
   }, []);
 
   return (
-    <>
-      {screenSize.width > 868 ? <Header /> : <HeaderMobile />}
-      {/* <ProductPage /> */}
-      {/* <Headphones websiteData={websiteData} /> */}
-      {/* <Earphones websiteData={websiteData} /> */}
-      {/* <Speakers websiteData={websiteData} /> */}
-      <Menu />
-      {/* <Footer /> */}
-    </>
+    <MyContext.Provider value={{ hamburger, sethamburger }}>
+      {screenSize.width > 868 ? (
+        <Header />
+      ) : (
+        <HeaderMobile hamburger={hamburger} sethamburger={sethamburger} />
+      )}
+      {hamburger ? null : <Routers websiteData={websiteData} />}
+      {hamburger ? <Menu /> : null}
+      <Footer />
+    </MyContext.Provider>
   );
 }
 

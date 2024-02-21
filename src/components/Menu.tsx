@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import ProductShocase from "../components/ProductShocase";
 
 function Menu() {
   return (
@@ -15,7 +15,7 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                Shop
+                <Link to="headphones">Shop</Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
@@ -32,7 +32,7 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                Shop
+                <Link to="speakers">Shop</Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
@@ -49,7 +49,7 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                Shop
+                <Link to="earphones">Shop</Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
@@ -66,7 +66,7 @@ export default Menu;
 
 const Container = styled.div`
   display: flex;
-  min-height: 60vh;
+  min-height: 90vh;
   background-color: #fff;
   padding-bottom: 50px;
   width: 100%;

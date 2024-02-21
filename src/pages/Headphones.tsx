@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import ProductShocase from "../components/ProductShocase";
+import { useContext } from "react";
+import { MyContext } from "../App";
+
 function Headphones({ websiteData }: any) {
+  const context = useContext(MyContext);
+  console.log(context.hamburger);
   return (
     <>
       <Header>

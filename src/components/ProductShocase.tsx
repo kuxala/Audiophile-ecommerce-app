@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import "../styles/ProductShowcase.css";
+import { Link } from "react-router-dom";
+
 const ImageAnimation = styled.img`
   width: 150px;
   transition: width 0.3s ease;
@@ -21,7 +23,7 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              Shop
+              <Link to="/headphones">Shop</Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"
@@ -39,7 +41,7 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              Shop
+              <Link to="/speakers">Shop</Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"
@@ -57,7 +59,7 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              Shop
+              <Link to="/earphones">Shop</Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"

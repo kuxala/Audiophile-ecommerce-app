@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,10 +10,18 @@ function Header() {
         <Nav>
           <img src="../../assets/shared/desktop/logo.svg" width="143px" />
           <Ul>
-            <Li>Home</Li>
-            <Li>Headphones</Li>
-            <Li>Speakers</Li>
-            <Li>Earphones</Li>
+            <Link to="/">
+              <Li>Home</Li>
+            </Link>
+            <Link to="/headphones">
+              <Li>Headphones</Li>
+            </Link>
+            <Link to="/speakers">
+              <Li>Speakers</Li>
+            </Link>
+            <Link to="/earphones">
+              <Li>Earphones</Li>
+            </Link>
           </Ul>
           <img
             src="../../assets/shared/desktop/icon-cart.svg"

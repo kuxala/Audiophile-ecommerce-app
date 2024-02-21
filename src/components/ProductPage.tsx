@@ -3,7 +3,7 @@ import LastSection from "./LastSection";
 import ProductShocase from "./ProductShocase";
 import SpeakersShowcase from "./SpeakersShowcase";
 
-function ProductPage() {
+function ProductPage({}: any) {
   return (
     <>
       <div className="background">
