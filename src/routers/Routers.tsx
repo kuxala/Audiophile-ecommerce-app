@@ -9,6 +9,8 @@ import SingleProduct from "../pages/SingleProduct";
 
 function Routers({ websiteData }: any) {
   const context = useContext(MyContext);
+
+  console.log(context.websiteData);
   return (
     <>
       <Routes>

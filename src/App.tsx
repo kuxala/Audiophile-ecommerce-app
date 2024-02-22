@@ -32,7 +32,9 @@ function App() {
   }, []);
 
   return (
-    <MyContext.Provider value={{ hamburger, sethamburger }}>
+    <MyContext.Provider
+      value={{ hamburger, sethamburger, websiteData, setWebsiteData }}
+    >
       {screenSize.width > 868 ? (
         <Header />
       ) : (
