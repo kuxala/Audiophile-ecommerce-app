@@ -135,6 +135,8 @@ const P = styled.p`
   font-weight: 400;
   line-height: 25px; /* 166.667% */
   opacity: 0.5;
+  padding-left: 24px;
+  padding-right: 24px;
   @media only screen and (min-width: 768px) {
     max-width: 540px;
     text-align: left;

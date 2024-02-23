@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-function SingleProduct() {
+export default function SingleProduct() {
   //params
   const { product } = useParams();
   console.log(product);
@@ -31,41 +31,119 @@ function SingleProduct() {
           </RightCol>
         </Component>
 
-        <section>
+        <Section>
           <div>
-            <h1>Features</h1>
-            <p>
+            <Features>Features</Features>
+            <FeaturesDescription>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
               omnis, alias dolore, ea exercitationem iure inventore repellat
               error ipsa delectus labore, maiores modi!
-            </p>
+            </FeaturesDescription>
           </div>
+          <TheBox>
+            <InTheBox>in the box</InTheBox>
+
+            <Ul>
+              <EachDiv>
+                <EachDivP>1X</EachDivP>
+                <Li>something 1</Li>
+              </EachDiv>
+              <EachDiv>
+                <EachDivP>1X</EachDivP>
+                <Li>something 1</Li>
+              </EachDiv>
+              <EachDiv>
+                <EachDivP>1X</EachDivP>
+                <Li>something 1</Li>
+              </EachDiv>
+              <EachDiv>
+                <EachDivP>1X</EachDivP>
+                <Li>something 1</Li>
+              </EachDiv>
+            </Ul>
+          </TheBox>
           <div>
-            <h1>in the box</h1>
-            <ul>
-              <li>something</li>
-              <li>something</li>
-            </ul>
-          </div>
-          <div>
             <img />
             <img />
             <img />
           </div>
-        </section>
+        </Section>
       </WholeComponent>
     </>
   );
 }
-export default SingleProduct;
+const EachDiv = styled.div`
+  display: flex;
+  gap: 24px;
+`;
+const EachDivP = styled.p`
+  color: #d87d4a;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+`;
+const Ul = styled.ul`
+  list-style: none;
+`;
+const Li = styled.li`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 166.667% */
+`;
+const TheBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const InTheBox = styled.h1`
+  padding-top: 88px;
+  padding-bottom: 24px;
+  color: #000;
+  font-family: Manrope;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+  letter-spacing: 0.857px;
+  text-transform: uppercase;
+`;
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
+const Features = styled.h1`
+  padding-bottom: 24px;
+  color: #000;
+  font-family: Manrope;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+  letter-spacing: 0.857px;
+  text-transform: uppercase;
+`;
+
+const FeaturesDescription = styled.div`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 166.667% */
+  opacity: 0.5;
+`;
 const AddTo = styled.div`
   display: flex;
   gap: 16px;
   padding-bottom: 88px;
 `;
 const Button = styled.button`
-  width: 56%;
+  width: 50%;
 `;
 const Input = styled.input`
   width: 40%;
@@ -131,7 +209,6 @@ const ProductDescription = styled.p`
   line-height: 25px; /* 166.667% */
   padding-top: 24px;
   padding-bottom: 24px;
-  max-width: 327px;
 `;
 const Price = styled.p`
   color: #000;
