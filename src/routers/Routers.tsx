@@ -3,13 +3,13 @@ import ProductPage from "../components/ProductPage";
 import Headphones from "../pages/Headphones";
 import Speakers from "../pages/Speakers";
 import Earphones from "../pages/Earphones";
+import SingleProduct from "../pages/SingleProduct";
 import { useContext } from "react";
 import { MyContext } from "../App";
-import SingleProduct from "../pages/SingleProduct";
 
 function Routers({ websiteData }: any) {
   const context = useContext(MyContext);
-
+  console.log(context);
   return (
     <>
       <Routes>

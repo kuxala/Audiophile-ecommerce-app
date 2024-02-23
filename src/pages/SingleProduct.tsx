@@ -2,9 +2,8 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 export default function SingleProduct() {
-  //params
-  const { product } = useParams();
-  console.log(product);
+  // const { product } = useParams();
+  // console.log(product);
   return (
     <>
       <WholeComponent>
@@ -24,13 +23,12 @@ export default function SingleProduct() {
               consectetur iusto itaque dignissimos deserunt sit.
             </ProductDescription>
             <Price>Price</Price>
-            <AddTo>
-              <Input type="number" value="1" />
-              <Button className="yellow-btn">Add to cart</Button>
-            </AddTo>
           </RightCol>
-        </Component>
-
+        </Component>{" "}
+        <AddTo>
+          <Input type="number" />
+          <Button className="yellow-btn">Add to cart</Button>
+        </AddTo>
         <Section>
           <div>
             <Features>Features</Features>
@@ -166,11 +164,7 @@ const FeaturesDescription = styled.div`
   line-height: 25px; /* 166.667% */
   opacity: 0.5;
 `;
-const AddTo = styled.div`
-  display: flex;
-  gap: 16px;
-  padding-bottom: 88px;
-`;
+
 const Button = styled.button`
   width: 50%;
 `;
@@ -179,6 +173,12 @@ const Input = styled.input`
   height: 48px;
   flex-shrink: 0;
   border: 0;
+`;
+
+const AddTo = styled.div`
+  display: flex;
+  gap: 16px;
+  padding-bottom: 88px;
 `;
 const Component = styled.div`
   display: flex;
