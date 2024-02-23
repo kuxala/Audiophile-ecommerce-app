@@ -62,16 +62,45 @@ export default function SingleProduct() {
               </EachDiv>
             </Ul>
           </TheBox>
-          <div>
-            <img />
-            <img />
-            <img />
-          </div>
+          <Images>
+            <Img1
+              src="../../assets/product-xx59-headphones/mobile/image-product.jpg"
+              width="100%"
+            />
+            <Img2
+              src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg"
+              width="100%"
+            />
+            <Img3
+              src="../../assets/product-xx59-headphones/mobile/image-gallery-2.jpg"
+              width="100%"
+            />
+          </Images>
         </Section>
       </WholeComponent>
     </>
   );
 }
+
+const Img1 = styled.img`
+  border-radius: 8px;
+  height: 220px;
+`;
+
+const Img2 = styled.img`
+  border-radius: 8px;
+  height: 220px;
+`;
+const Img3 = styled.img`
+  border-radius: 8px;
+  height: 400px;
+`;
+const Images = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 88px;
+`;
 const EachDiv = styled.div`
   display: flex;
   gap: 24px;
