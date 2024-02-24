@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
 
 function Menu() {
+  const context = useContext(MyContext);
+  console.log("hamburger in header", context.hamburger);
   return (
     <>
       <Container>
@@ -15,7 +19,14 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                <Link to="headphones">Shop</Link>
+                <Link
+                  to="headphones"
+                  onClick={() => {
+                    context.setHamburger(!context.hamburger);
+                  }}
+                >
+                  Shop
+                </Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
@@ -32,7 +43,14 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                <Link to="speakers">Shop</Link>
+                <Link
+                  to="speakers"
+                  onClick={() => {
+                    context.setHamburger(!context.hamburger);
+                  }}
+                >
+                  Shop
+                </Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
@@ -49,7 +67,14 @@ function Menu() {
 
             <div>
               <ProductShopLink>
-                <Link to="earphones">Shop</Link>
+                <Link
+                  to="earphones"
+                  onClick={() => {
+                    context.setHamburger(!context.hamburger);
+                  }}
+                >
+                  Shop
+                </Link>
                 <img
                   src="../../assets/shared/desktop/icon-arrow-right.svg"
                   height="12px"
