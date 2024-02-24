@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
+import ProductShocase from "../components/ProductShocase";
 
 export default function SingleProduct() {
   // const { product } = useParams();
   // console.log(product);
+  const context = useContext(MyContext);
+
   return (
     <>
       <WholeComponent>
@@ -24,7 +29,7 @@ export default function SingleProduct() {
             </ProductDescription>
             <Price>Price</Price>
           </RightCol>
-        </Component>{" "}
+        </Component>
         <AddTo>
           <Input type="number" />
           <Button className="yellow-btn">Add to cart</Button>
@@ -76,6 +81,7 @@ export default function SingleProduct() {
           </Images>
         </Section>
       </WholeComponent>
+      <ProductShocase />
     </>
   );
 }
