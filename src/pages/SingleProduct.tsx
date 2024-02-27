@@ -2,11 +2,10 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { MyContext } from "../App";
-import ProductShocase from "../components/ProductShocase";
 
 export default function SingleProduct() {
-  // const { product } = useParams();
-  // console.log(product);
+  const { product } = useParams();
+  console.log(product);
   const context = useContext(MyContext);
 
   return (
@@ -38,57 +37,74 @@ export default function SingleProduct() {
         </Component>
 
         <Section>
-          <div>
-            <Features>Features</Features>
-            <FeaturesDescription>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-              omnis, alias dolore, ea exercitationem iure inventore repellat
-              error ipsa delectus labore, maiores modi!
-            </FeaturesDescription>
-          </div>
-          <TheBox>
-            <InTheBox>in the box</InTheBox>
+          <SmallSection>
+            <Description>
+              <Features>Features</Features>
+              <FeaturesDescription>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
+                omnis, alias dolore, ea exercitationem iure inventore repellat
+                error ipsa delectus labore, maiores modi!
+              </FeaturesDescription>
+            </Description>
+            <TheBox>
+              <InTheBox>in the box</InTheBox>
 
-            <Ul>
-              <EachDiv>
-                <EachDivP>1X</EachDivP>
-                <Li>something 1</Li>
-              </EachDiv>
-              <EachDiv>
-                <EachDivP>1X</EachDivP>
-                <Li>something 1</Li>
-              </EachDiv>
-              <EachDiv>
-                <EachDivP>1X</EachDivP>
-                <Li>something 1</Li>
-              </EachDiv>
-              <EachDiv>
-                <EachDivP>1X</EachDivP>
-                <Li>something 1</Li>
-              </EachDiv>
-            </Ul>
-          </TheBox>
+              <Ul>
+                <EachDiv>
+                  <EachDivP>1X</EachDivP>
+                  <Li>something 1</Li>
+                </EachDiv>
+                <EachDiv>
+                  <EachDivP>1X</EachDivP>
+                  <Li>something 1</Li>
+                </EachDiv>
+                <EachDiv>
+                  <EachDivP>1X</EachDivP>
+                  <Li>something 1</Li>
+                </EachDiv>
+                <EachDiv>
+                  <EachDivP>1X</EachDivP>
+                  <Li>something 1</Li>
+                </EachDiv>
+              </Ul>
+            </TheBox>
+          </SmallSection>
           <Images>
-            <Img1
-              src="../../assets/product-xx59-headphones/mobile/image-product.jpg"
-              width="100%"
-            />
-            <Img2
-              src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg"
-              width="100%"
-            />
-            <Img3
-              src="../../assets/product-xx59-headphones/mobile/image-gallery-2.jpg"
-              width="100%"
-            />
+            <TwoSide>
+              <Img1 src="../../assets/product-xx59-headphones/mobile/image-product.jpg" />
+              <Img2 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
+            </TwoSide>
+            <Img3 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
           </Images>
         </Section>
       </WholeComponent>
-      <ProductShocase />
     </>
   );
 }
+
+const Description = styled.div`
+  @media only screen and (min-width: 768px) {
+    width: 70%;
+    max-width: 635px;
+  }
+`;
+
+const SmallSection = styled.div`
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    padding: 48px 0;
+  }
+`;
+const TheBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
+`;
 const MainImage = styled.img`
+  border-radius: 8px;
+
   @media only screen and (min-width: 768px) {
     max-width: 540px;
     height: 560px;
@@ -98,8 +114,9 @@ const Img1 = styled.img`
   border-radius: 8px;
   height: 220px;
   @media only screen and (min-width: 768px) {
-    width: 540px;
-    height: 560px;
+    width: 444px;
+    height: 280px;
+    flex-shrink: 0;
     flex-shrink: 0;
   }
 `;
@@ -107,17 +124,38 @@ const Img1 = styled.img`
 const Img2 = styled.img`
   border-radius: 8px;
   height: 220px;
+  @media only screen and (min-width: 768px) {
+    width: 444px;
+    height: 280px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+  }
 `;
 const Img3 = styled.img`
   border-radius: 8px;
   height: 400px;
+  @media only screen and (min-width: 768px) {
+    width: 58%;
+    height: 592px;
+  }
 `;
 const Images = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding-top: 88px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
+const TwoSide = styled.div`
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+`;
+
 const EachDiv = styled.div`
   display: flex;
   gap: 24px;
@@ -129,6 +167,9 @@ const EachDivP = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 25px; /* 166.667% */
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 const Ul = styled.ul`
   list-style: none;
@@ -140,11 +181,11 @@ const Li = styled.li`
   font-style: normal;
   font-weight: 400;
   line-height: 25px; /* 166.667% */
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
-const TheBox = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+
 const InTheBox = styled.h1`
   padding-top: 88px;
   padding-bottom: 24px;
@@ -156,10 +197,19 @@ const InTheBox = styled.h1`
   line-height: 36px; /* 150% */
   letter-spacing: 0.857px;
   text-transform: uppercase;
+  @media only screen and (min-width: 768px) {
+    padding: 0;
+    font-size: 32px;
+    padding-bottom: 24px;
+  }
 `;
 const Section = styled.div`
   display: flex;
   flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    margin-top: 160px;
+    padding-bottom: 160px;
+  }
 `;
 
 const Features = styled.h1`
@@ -172,6 +222,9 @@ const Features = styled.h1`
   line-height: 36px; /* 150% */
   letter-spacing: 0.857px;
   text-transform: uppercase;
+  @media only screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const FeaturesDescription = styled.div`
@@ -182,6 +235,9 @@ const FeaturesDescription = styled.div`
   font-weight: 400;
   line-height: 25px; /* 166.667% */
   opacity: 0.5;
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const Button = styled.button`
@@ -228,6 +284,7 @@ const RightCol = styled.div`
   padding-top: 32px;
   @media only screen and (min-width: 768px) {
     max-width: 445px;
+    margin: 0 auto;
   }
 `;
 
