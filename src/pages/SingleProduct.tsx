@@ -15,7 +15,7 @@ export default function SingleProduct() {
         <GoBack>Go Back</GoBack>
         <Component>
           <LeftCol>
-            <img
+            <MainImage
               src="../../assets/product-xx59-headphones/mobile/image-product.jpg"
               width="100%"
             />
@@ -28,12 +28,13 @@ export default function SingleProduct() {
               consectetur iusto itaque dignissimos deserunt sit.
             </ProductDescription>
             <Price>Price</Price>
+            <AddTo>
+              <Input type="number" />
+              <Button className="yellow-btn">Add to cart</Button>
+            </AddTo>
           </RightCol>
         </Component>
-        <AddTo>
-          <Input type="number" />
-          <Button className="yellow-btn">Add to cart</Button>
-        </AddTo>
+
         <Section>
           <div>
             <Features>Features</Features>
@@ -85,10 +86,21 @@ export default function SingleProduct() {
     </>
   );
 }
-
+const MainImage = styled.img`
+  @media only screen and (min-width: 768px) {
+    width: 540px;
+    height: 560px;
+    flex-shrink: 0;
+  }
+`;
 const Img1 = styled.img`
   border-radius: 8px;
   height: 220px;
+  @media only screen and (min-width: 768px) {
+    width: 540px;
+    height: 560px;
+    flex-shrink: 0;
+  }
 `;
 
 const Img2 = styled.img`
@@ -178,7 +190,7 @@ const Input = styled.input`
   width: 40%;
   height: 48px;
   flex-shrink: 0;
-  border: 0;
+  border: 1px solid gray;
 `;
 
 const AddTo = styled.div`
@@ -186,20 +198,33 @@ const AddTo = styled.div`
   gap: 16px;
   padding-bottom: 88px;
 `;
-const Component = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 const WholeComponent = styled.div`
   padding: 16px 24px;
 `;
+const Component = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
 const LeftCol = styled.div`
   width: 100%;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    display: flex;
+    magin: 0 auto;
+    justify-content: center;
+  }
 `;
 const RightCol = styled.div`
   width: 100%;
   padding-top: 32px;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 const GoBack = styled.p`

@@ -8,8 +8,7 @@ import { useContext } from "react";
 import { MyContext } from "../App";
 
 function Routers({ websiteData }: any) {
-  const context = useContext(MyContext);
-  console.log(context);
+  // const context = useContext(MyContext);
   return (
     <>
       <Routes>

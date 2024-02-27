@@ -5,7 +5,6 @@ import { MyContext } from "../App";
 
 function Menu() {
   const context = useContext(MyContext);
-  console.log("hamburger in header", context.hamburger);
   return (
     <>
       <Container>

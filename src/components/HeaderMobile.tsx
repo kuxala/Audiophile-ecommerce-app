@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/HeaderMobile.css";
-import { useContext } from "react";
-import { MyContext } from "../App";
 
 function HeaderMobile({ hamburger, sethamburger }: any) {
-  const context = useContext(MyContext);
-  console.log("context in header", context.hamburger);
   return (
     <>
       <header>
