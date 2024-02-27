@@ -25,7 +25,9 @@ export default function SingleProduct() {
             <ProductText>NAMES</ProductText>
             <ProductDescription>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-              consectetur iusto itaque dignissimos deserunt sit.
+              consectetur iusto itaque dignissimos deserunt sit. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Temporibus
+              consequuntur eaque reiciendis reprehenderit vero laboriosam, modi!
             </ProductDescription>
             <Price>Price</Price>
             <AddTo>
@@ -88,9 +90,8 @@ export default function SingleProduct() {
 }
 const MainImage = styled.img`
   @media only screen and (min-width: 768px) {
-    width: 540px;
+    max-width: 540px;
     height: 560px;
-    flex-shrink: 0;
   }
 `;
 const Img1 = styled.img`
@@ -190,7 +191,9 @@ const Input = styled.input`
   width: 40%;
   height: 48px;
   flex-shrink: 0;
-  border: 1px solid gray;
+  background: #f1f1f1;
+  border: 0;
+  padding: 20px;
 `;
 
 const AddTo = styled.div`
@@ -201,6 +204,10 @@ const AddTo = styled.div`
 
 const WholeComponent = styled.div`
   padding: 16px 24px;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    padding: 0 165px;
+  }
 `;
 const Component = styled.div`
   display: flex;
@@ -214,16 +221,13 @@ const LeftCol = styled.div`
   width: 100%;
   @media only screen and (min-width: 768px) {
     width: 50%;
-    display: flex;
-    magin: 0 auto;
-    justify-content: center;
   }
 `;
 const RightCol = styled.div`
   width: 100%;
   padding-top: 32px;
   @media only screen and (min-width: 768px) {
-    width: 50%;
+    max-width: 445px;
   }
 `;
 
@@ -236,6 +240,16 @@ const GoBack = styled.p`
   font-weight: 400;
   line-height: 25px;
   opacity: 0.5;
+  @media only screen and (min-width: 768px) {
+    color: #000;
+    font-family: Manrope;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+    padding-top: 70px;
+    padding-bottom: 24px;
+  }
 `;
 
 const NewProductP = styled.p`
@@ -248,6 +262,10 @@ const NewProductP = styled.p`
   line-height: normal;
   letter-spacing: 10px;
   text-transform: uppercase;
+  @media only screen and (min-width: 768px) {
+    padding-top: 48px;
+    font-size: 14 px;
+  }
 `;
 const ProductText = styled.h1`
   color: #000;
@@ -258,6 +276,16 @@ const ProductText = styled.h1`
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+  @media only screen and (min-width: 768px) {
+    color: #000;
+    font-family: Manrope;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px; /* 110% */
+    letter-spacing: 1.429px;
+    text-transform: uppercase;
+  }
 `;
 
 const ProductDescription = styled.p`
@@ -269,6 +297,10 @@ const ProductDescription = styled.p`
   line-height: 25px; /* 166.667% */
   padding-top: 24px;
   padding-bottom: 24px;
+  @media only screen and (min-width: 768px) {
+    font-size: 15px;
+    padding-top: 24px;
+  }
 `;
 const Price = styled.p`
   color: #000;
@@ -280,4 +312,8 @@ const Price = styled.p`
   letter-spacing: 1.286px;
   text-transform: uppercase;
   padding-bottom: 31px;
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+    padding-bottom: 48px;
+  }
 `;
