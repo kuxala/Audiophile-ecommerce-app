@@ -2,14 +2,94 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { MyContext } from "../App";
+import LastSection from "../components/LastSection";
+import ProductShocase from "../components/ProductShocase";
 
 export default function SingleProduct() {
   const { product } = useParams();
-  console.log(product);
+  console.log("Params: ", product);
   const context = useContext(MyContext);
-
+  // console.log("Context: ", context.websiteData);
   return (
     <>
+      {context.websiteData.map((x: any) => {
+        if (x.slug == product) {
+          return (
+            <WholeComponent>
+              <GoBack>Go Back</GoBack>
+              <Component>
+                <LeftCol>
+                  <MainImage
+                    src={x.slug === product ? x.image.desktop : null}
+                    width="100%"
+                  />
+                </LeftCol>
+                <RightCol>
+                  <NewProductP>new product</NewProductP>
+                  <ProductText>{x.name}</ProductText>
+                  <ProductDescription>{x.description}</ProductDescription>
+                  <Price>${x.price}</Price>
+                  <AddTo>
+                    <Input type="number" />
+                    <Button className="yellow-btn">Add to cart</Button>
+                  </AddTo>
+                </RightCol>
+              </Component>
+
+              <Section>
+                <SmallSection>
+                  <Description>
+                    <Features>Features</Features>
+                    <FeaturesDescription>{x.features}</FeaturesDescription>
+                  </Description>
+                  <TheBox>
+                    <InTheBox>in the box</InTheBox>
+                    {context.websiteData.map((x: any) => {
+                      if (x.slug == product) {
+                        return (
+                          <Ul key={x.id}>
+                            {x.includes.map((include: any, index: number) => (
+                              <EachDiv key={index}>
+                                <EachDivP>{include.quantity}X</EachDivP>
+                                <Li>{include.item}</Li>
+                              </EachDiv>
+                            ))}
+                          </Ul>
+                        );
+                      }
+                    })}
+
+                    {/* <EachDiv>
+                        <EachDivP>1X</EachDivP>
+                        <Li>something 1</Li>
+                      </EachDiv>
+                      <EachDiv>
+                        <EachDivP>1X</EachDivP>
+                        <Li>something 1</Li>
+                      </EachDiv>
+                      <EachDiv>
+                        <EachDivP>1X</EachDivP>
+                        <Li>something 1</Li>
+                      </EachDiv>
+                      <EachDiv>
+                        <EachDivP>1X</EachDivP>
+                        <Li>something 1</Li>
+                      </EachDiv> */}
+                  </TheBox>
+                </SmallSection>
+                <Images>
+                  <TwoSide>
+                    <Img1 src="../../assets/product-xx59-headphones/mobile/image-product.jpg" />
+                    <Img2 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
+                  </TwoSide>
+                  <Img3 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
+                </Images>
+              </Section>
+            </WholeComponent>
+          );
+        }
+      })}
+
       <WholeComponent>
         <GoBack>Go Back</GoBack>
         <Component>
@@ -78,6 +158,8 @@ export default function SingleProduct() {
           </Images>
         </Section>
       </WholeComponent>
+      <ProductShocase />
+      <LastSection />
     </>
   );
 }
@@ -112,9 +194,10 @@ const MainImage = styled.img`
 `;
 const Img1 = styled.img`
   border-radius: 8px;
+  width: 100%;
   height: 220px;
   @media only screen and (min-width: 768px) {
-    width: 444px;
+    width: 100%;
     height: 280px;
     flex-shrink: 0;
     flex-shrink: 0;
@@ -124,8 +207,9 @@ const Img1 = styled.img`
 const Img2 = styled.img`
   border-radius: 8px;
   height: 220px;
+  width: 100%;
   @media only screen and (min-width: 768px) {
-    width: 444px;
+    width: 100%;
     height: 280px;
     flex-shrink: 0;
     flex-shrink: 0;
@@ -135,7 +219,7 @@ const Img3 = styled.img`
   border-radius: 8px;
   height: 400px;
   @media only screen and (min-width: 768px) {
-    width: 58%;
+    width: 65%;
     height: 592px;
   }
 `;

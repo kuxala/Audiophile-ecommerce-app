@@ -8,7 +8,9 @@ function Header() {
         style={{ backgroundColor: "#191919", borderBottom: "1px solid gray" }}
       >
         <Nav>
-          <img src="../../assets/shared/desktop/logo.svg" width="143px" />
+          <Link to="/">
+            <img src="../../assets/shared/desktop/logo.svg" width="143px" />
+          </Link>
           <Ul>
             <Link to="/">
               <Li>Home</Li>
@@ -52,7 +54,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   color: #fff;
   font-family: Manrope;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 25px; /* 192.308% */

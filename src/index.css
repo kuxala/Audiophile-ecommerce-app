@@ -37,6 +37,11 @@
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+.black-btn:hover{
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+}
 .white-btn{
     width: 160px;
     height: 48px;
