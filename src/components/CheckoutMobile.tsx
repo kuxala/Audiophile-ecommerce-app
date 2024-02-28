@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-export default function Checkout() {
+export default function CheckoutMobile() {
   const [checkbox, setCheckbox] = useState<string>("money");
   const border = {
     border: "1px solid #d87d4a",
@@ -235,6 +235,12 @@ const SmallP = styled.p`
 const WholeComponent = styled.div`
   background: #fafafa;
   min-height: 100vh;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+  }
 `;
 const HeaderH1 = styled.h1`
   padding-bottom: 16px;
@@ -278,6 +284,7 @@ const Summary = styled.div`
   border-radius: 8px;
   background: #fff;
 `;
+
 const GoBack = styled.p`
   width: 90%;
   display: flex;

@@ -6,9 +6,13 @@ import Earphones from "../pages/Earphones";
 import SingleProduct from "../pages/SingleProduct";
 import { useContext } from "react";
 import { MyContext } from "../App";
+import Checkout from "../components/Checkout";
+import CheckoutMobile from "../components/CheckoutMobile";
 
 function Routers({ websiteData }: any) {
-  // const context = useContext(MyContext);
+  const context = useContext(MyContext);
+  console.log(context.screenSize);
+
   return (
     <>
       <Routes>
@@ -26,6 +30,13 @@ function Routers({ websiteData }: any) {
           element={<Earphones websiteData={websiteData} />}
         />
         <Route path="/headphones/:product" element={<SingleProduct />} />
+
+        <Route
+          path="/checkout"
+          element={
+            context.screenSize.width > 768 ? <Checkout /> : <CheckoutMobile />
+          }
+        />
       </Routes>
     </>
   );
