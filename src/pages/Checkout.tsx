@@ -78,10 +78,102 @@ export default function Checkout() {
         </div>
       </Component>
 
-      <Summary>Summary</Summary>
+      <Summary>
+        <SummaryH1>Summary</SummaryH1>
+        <div>
+          <div>Cards</div>
+          <div>Cards</div>
+        </div>
+
+        <AllDivs>
+          <Divs>
+            <LeftP>Total</LeftP>
+            <RightP>$Price</RightP>
+          </Divs>
+          <Divs>
+            <LeftP>Shipping</LeftP>
+            <RightP>$50</RightP>
+          </Divs>
+          <Divs>
+            <LeftP>VAT(INCLUDED)</LeftP>
+            <RightP>$Price</RightP>
+          </Divs>
+          <Divs>
+            <LeftP>Grand Total</LeftP>
+            <GrandTotal>$Price</GrandTotal>
+          </Divs>
+        </AllDivs>
+        <Button>Continue & Pay</Button>
+      </Summary>
     </WholeComponent>
   );
 }
+const Button = styled.button`
+  margin-top: 32px;
+  margin-bottom: 64px;
+  border: 0;
+  height: 48px;
+  background: #d87d4a;
+  color: #fff;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+`;
+const AllDivs = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 32px;
+`;
+const SummaryH1 = styled.h1`
+  color: #000;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.286px;
+  text-transform: uppercase;
+  padding: 32px 0;
+`;
+const GrandTotal = styled.div`
+  color: #d87d4a;
+  text-align: right;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+`;
+const Divs = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const LeftP = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 166.667% */
+`;
+
+const RightP = styled.p`
+  color: #000;
+  text-align: right;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+`;
 const Payment = styled.div`
   display: flex;
   flex-direction: column;
@@ -174,14 +266,17 @@ const Component = styled.div`
   padding: 23px;
   border-radius: 8px;
   background: #fff;
+  margin-bottom: 32px;
 `;
 
 const Summary = styled.div`
-  padding-top: 165px;
+  padding: 24px;
   width: 90%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  border-radius: 8px;
+  background: #fff;
 `;
 const GoBack = styled.p`
   width: 90%;
