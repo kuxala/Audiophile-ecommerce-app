@@ -58,106 +58,27 @@ export default function SingleProduct() {
                         );
                       }
                     })}
-
-                    {/* <EachDiv>
-                        <EachDivP>1X</EachDivP>
-                        <Li>something 1</Li>
-                      </EachDiv>
-                      <EachDiv>
-                        <EachDivP>1X</EachDivP>
-                        <Li>something 1</Li>
-                      </EachDiv>
-                      <EachDiv>
-                        <EachDivP>1X</EachDivP>
-                        <Li>something 1</Li>
-                      </EachDiv>
-                      <EachDiv>
-                        <EachDivP>1X</EachDivP>
-                        <Li>something 1</Li>
-                      </EachDiv> */}
                   </TheBox>
                 </SmallSection>
-                <Images>
-                  <TwoSide>
-                    <Img1 src="../../assets/product-xx59-headphones/mobile/image-product.jpg" />
-                    <Img2 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
-                  </TwoSide>
-                  <Img3 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
-                </Images>
+                {context.websiteData.map((x: any) => {
+                  if (x.slug == product) {
+                    return (
+                      <Images>
+                        <TwoSide>
+                          <Img1 src={x.gallery.first.desktop} />
+                          <Img2 src={x.gallery.second.desktop} />
+                        </TwoSide>
+                        <Img3 src={x.gallery.third.desktop} />
+                      </Images>
+                    );
+                  }
+                })}
               </Section>
             </WholeComponent>
           );
         }
       })}
 
-      <WholeComponent>
-        <GoBack>Go Back</GoBack>
-        <Component>
-          <LeftCol>
-            <MainImage
-              src="../../assets/product-xx59-headphones/mobile/image-product.jpg"
-              width="100%"
-            />
-          </LeftCol>
-          <RightCol>
-            <NewProductP>new product</NewProductP>
-            <ProductText>NAMES</ProductText>
-            <ProductDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores
-              consectetur iusto itaque dignissimos deserunt sit. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Temporibus
-              consequuntur eaque reiciendis reprehenderit vero laboriosam, modi!
-            </ProductDescription>
-            <Price>Price</Price>
-            <AddTo>
-              <Input type="number" />
-              <Button className="yellow-btn">Add to cart</Button>
-            </AddTo>
-          </RightCol>
-        </Component>
-
-        <Section>
-          <SmallSection>
-            <Description>
-              <Features>Features</Features>
-              <FeaturesDescription>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-                omnis, alias dolore, ea exercitationem iure inventore repellat
-                error ipsa delectus labore, maiores modi!
-              </FeaturesDescription>
-            </Description>
-            <TheBox>
-              <InTheBox>in the box</InTheBox>
-
-              <Ul>
-                <EachDiv>
-                  <EachDivP>1X</EachDivP>
-                  <Li>something 1</Li>
-                </EachDiv>
-                <EachDiv>
-                  <EachDivP>1X</EachDivP>
-                  <Li>something 1</Li>
-                </EachDiv>
-                <EachDiv>
-                  <EachDivP>1X</EachDivP>
-                  <Li>something 1</Li>
-                </EachDiv>
-                <EachDiv>
-                  <EachDivP>1X</EachDivP>
-                  <Li>something 1</Li>
-                </EachDiv>
-              </Ul>
-            </TheBox>
-          </SmallSection>
-          <Images>
-            <TwoSide>
-              <Img1 src="../../assets/product-xx59-headphones/mobile/image-product.jpg" />
-              <Img2 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
-            </TwoSide>
-            <Img3 src="../../assets/product-xx59-headphones/mobile/image-gallery-1.jpg" />
-          </Images>
-        </Section>
-      </WholeComponent>
       <ProductShocase />
       <LastSection />
     </>
