@@ -1,6 +1,10 @@
 import styled from "styled-components";
-
+import { useState } from "react";
 export default function Checkout() {
+  const [checkbox, setCheckbox] = useState<string>("money");
+  const border = {
+    border: "1px solid #d87d4a",
+  };
   return (
     <WholeComponent>
       <GoBack>Go Back</GoBack>
@@ -46,16 +50,30 @@ export default function Checkout() {
         <div>
           <HeaderH1>Payment details</HeaderH1>
           <Payment>
-            <Emoney>e-Money</Emoney>
-            <Cash>Cash on Delivery</Cash>
+            <Emoney
+              onClick={() => {
+                setCheckbox("money");
+              }}
+              style={checkbox === "money" ? border : {}}
+            >
+              e-Money
+            </Emoney>
+            <Cash
+              onClick={() => {
+                setCheckbox("cash");
+              }}
+              style={checkbox === "cash" ? border : {}}
+            >
+              Cash on Delivery
+            </Cash>
           </Payment>
           <div>
             <SmallP>e-Money Number</SmallP>
-            <input />
+            <Input placeholder="23141234123" />
           </div>
           <div>
             <SmallP>e-Money Pin</SmallP>
-            <input />
+            <Input placeholder="8723" />
           </div>
         </div>
       </Component>
@@ -75,14 +93,30 @@ const Cash = styled.div`
   border: 1px solid #cfcfcf;
   background: #fff;
   padding: 1.2rem;
+  margin-bottom: 32px;
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.25px;
 `;
 
 const Emoney = styled.div`
   border-radius: 8px;
   height: 56px;
-  border: 1px solid #d87d4a;
+
+  border: 1px solid #cfcfcf;
   background: #fff;
   padding: 1.2rem;
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.25px;
 `;
 const Input = styled.input`
   margin-top: 8px;
