@@ -30,7 +30,8 @@ function Routers({ websiteData }: any) {
           element={<Earphones websiteData={websiteData} />}
         />
         <Route path="/headphones/:product" element={<SingleProduct />} />
-
+        <Route path="/speakers/:product" element={<SingleProduct />} />
+        <Route path="/earphones/:product" element={<SingleProduct />} />
         <Route
           path="/checkout"
           element={
