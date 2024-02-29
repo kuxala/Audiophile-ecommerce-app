@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "../styles/HeaderMobile.css";
+import { MyContext } from "../App";
+import { useContext } from "react";
 
 function HeaderMobile({ hamburger, sethamburger }: any) {
+  const context = useContext(MyContext);
+  console.log(context.card);
   return (
     <>
       <header>
@@ -15,7 +19,12 @@ function HeaderMobile({ hamburger, sethamburger }: any) {
           <Link to="/">
             <img src="../../assets/shared/desktop/logo.svg" />
           </Link>
-          <img src="../../assets/shared/desktop/icon-cart.svg" />
+          <img
+            src="../../assets/shared/desktop/icon-cart.svg"
+            onClick={() => {
+              context.setCard(!context.card);
+            }}
+          />
         </div>
       </header>
     </>

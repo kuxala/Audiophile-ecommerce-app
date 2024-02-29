@@ -11,7 +11,6 @@ import CheckoutMobile from "../components/CheckoutMobile";
 
 function Routers({ websiteData }: any) {
   const context = useContext(MyContext);
-  console.log(context.screenSize);
 
   return (
     <>

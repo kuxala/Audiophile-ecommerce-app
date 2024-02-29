@@ -94,6 +94,7 @@ const Container = styled.div`
   background-color: #fff;
   padding-bottom: 50px;
   width: 100%;
+  z-index: 9;
 `;
 
 const ProductShopSection = styled.div`

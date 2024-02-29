@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { MyContext } from "../App";
+import { useContext } from "react";
 
 function Header() {
+  const context = useContext(MyContext);
+  console.log(context.hamburger);
   return (
     <>
       <header
@@ -29,6 +33,9 @@ function Header() {
             src="../../assets/shared/desktop/icon-cart.svg"
             width="23px"
             height="30px"
+            onClick={() => {
+              context.setCard(!context.card);
+            }}
           />
         </Nav>
       </header>

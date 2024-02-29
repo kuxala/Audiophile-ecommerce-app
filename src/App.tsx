@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Routers from "./routers/Routers";
 import Menu from "./components/Menu";
 import { createContext, useState, useEffect } from "react";
+import Card from "./components/Card";
 
 export const MyContext = createContext<any>(null);
 
@@ -15,6 +16,7 @@ function App() {
     height: window.innerHeight,
   });
   const [hamburger, sethamburger] = useState<boolean>(false);
+  const [card, setCard] = useState<boolean>(false);
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -39,6 +41,8 @@ function App() {
         websiteData,
         setWebsiteData,
         screenSize,
+        card,
+        setCard,
       }}
     >
       {screenSize.width > 868 ? (
@@ -46,6 +50,7 @@ function App() {
       ) : (
         <HeaderMobile hamburger={hamburger} sethamburger={sethamburger} />
       )}
+      {card ? <Card /> : null}
       {hamburger ? null : <Routers websiteData={websiteData} />}
       {hamburger ? <Menu /> : null}
       <Footer />
