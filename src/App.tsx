@@ -6,6 +6,7 @@ import Routers from "./routers/Routers";
 import Menu from "./components/Menu";
 import { createContext, useState, useEffect } from "react";
 import Card from "./components/Card";
+import ScrollUp from "./components/ScrollUp";
 
 export const MyContext = createContext<any>(null);
 
@@ -53,6 +54,7 @@ function App() {
       {card ? <Card /> : null}
       {hamburger ? null : <Routers websiteData={websiteData} />}
       {hamburger ? <Menu /> : null}
+      <ScrollUp />
       <Footer />
     </MyContext.Provider>
   );
