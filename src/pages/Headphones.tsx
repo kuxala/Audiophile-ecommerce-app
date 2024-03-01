@@ -54,6 +54,7 @@ const Img = styled.img`
 const Header = styled.div`
   width: 100%;
   background-color: #000;
+  opacity: 0.95;
 `;
 
 const HeaderH1 = styled.h1`

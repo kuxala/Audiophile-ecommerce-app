@@ -9,7 +9,11 @@ function Header() {
   return (
     <>
       <header
-        style={{ backgroundColor: "#191919", borderBottom: "1px solid gray" }}
+        style={{
+          backgroundColor: "#000;",
+          borderBottom: "1px solid gray",
+          opacity: "0.9",
+        }}
       >
         <Nav>
           <Link to="/">

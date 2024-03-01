@@ -10,6 +10,7 @@ export default function SingleProduct() {
   console.log("Params: ", product);
   const context = useContext(MyContext);
   // console.log("Context: ", context.websiteData);
+
   return (
     <>
       {context.websiteData.map((x: any) => {
@@ -76,6 +77,8 @@ export default function SingleProduct() {
               </Section>
             </WholeComponent>
           );
+        } else {
+          return <h1>Product not found</h1>;
         }
       })}
 
