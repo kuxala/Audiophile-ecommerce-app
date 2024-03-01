@@ -1,6 +1,14 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ScrollUp from "./ScrollUp";
 
 function Footer() {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling animation
+    });
+  }
   return (
     <>
       <Footerr>
@@ -9,11 +17,34 @@ function Footer() {
             <Img src="../../assets/shared/desktop/logo.svg" />
             <Nav>
               <Ul>
-                <li>Home</li>
-                <li>Headphones</li>
-                <li>Speakers</li>
-                <li>Earphones</li>
+                <Link to="/" style={{ color: "white" }} onClick={scrollToTop}>
+                  <li>Home</li>
+                </Link>
+
+                <Link
+                  to="/headphones"
+                  style={{ color: "white" }}
+                  onClick={scrollToTop}
+                >
+                  <li>Headphones </li>
+                </Link>
+
+                <Link
+                  to="/speakers"
+                  style={{ color: "white" }}
+                  onClick={scrollToTop}
+                >
+                  <li>Speakers </li>
+                </Link>
+                <Link
+                  to="/earphones"
+                  style={{ color: "white" }}
+                  onClick={scrollToTop}
+                >
+                  <li>Earphones </li>
+                </Link>
               </Ul>
+              <ScrollUp />
             </Nav>
           </UpperDiv>
           <BothComponent>

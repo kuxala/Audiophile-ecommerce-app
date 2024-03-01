@@ -11,8 +11,6 @@ function Header() {
       <header
         style={{
           backgroundColor: "#000;",
-          borderBottom: "1px solid gray",
-          opacity: "0.9",
         }}
       >
         <Nav>
@@ -42,13 +40,19 @@ function Header() {
             }}
           />
         </Nav>
+        {/* <Border></Border> */}
       </header>
     </>
   );
 }
 
 export default Header;
-
+const Border = styled.div`
+  width: 80%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+`;
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;

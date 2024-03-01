@@ -73,17 +73,18 @@ export default function Checkout() {
                 Cash on Delivery
               </Cash>
             </Payment>
-
-            <EachDiv>
-              <FirstInput>
-                <SmallP>e-Money Number</SmallP>
-                <Input placeholder="2312314123" />
-              </FirstInput>
-              <SecondInput>
-                <SmallP>e-Money Pin</SmallP>
-                <Input placeholder="8723" />
-              </SecondInput>
-            </EachDiv>
+            {checkbox === "money" ? (
+              <EachDiv>
+                <FirstInput>
+                  <SmallP>e-Money Number</SmallP>
+                  <Input placeholder="2312314123" />
+                </FirstInput>
+                <SecondInput>
+                  <SmallP>e-Money Pin</SmallP>
+                  <Input placeholder="8723" />
+                </SecondInput>
+              </EachDiv>
+            ) : null}
           </div>
         </Component>
 
