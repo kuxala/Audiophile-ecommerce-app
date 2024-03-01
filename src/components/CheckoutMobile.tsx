@@ -67,14 +67,18 @@ export default function CheckoutMobile() {
               Cash on Delivery
             </Cash>
           </Payment>
-          <div>
-            <SmallP>e-Money Number</SmallP>
-            <Input placeholder="23141234123" />
-          </div>
-          <div>
-            <SmallP>e-Money Pin</SmallP>
-            <Input placeholder="8723" />
-          </div>
+          {checkbox === "money" ? (
+            <EachDiv>
+              <div>
+                <SmallP>e-Money Number</SmallP>
+                <Input placeholder="2312314123" />
+              </div>
+              <div>
+                <SmallP>e-Money Pin</SmallP>
+                <Input placeholder="8723" />
+              </div>
+            </EachDiv>
+          ) : null}
         </div>
       </Component>
 

@@ -10,7 +10,7 @@ function Header() {
     <>
       <header
         style={{
-          backgroundColor: "#000;",
+          backgroundColor: "#000",
         }}
       >
         <Nav>
@@ -65,6 +65,7 @@ const Ul = styled.ul`
   color: #fff;
   list-style: none;
   gap: 34px;
+  margin-left: -50px;
 `;
 const Li = styled.li`
   color: #fff;
