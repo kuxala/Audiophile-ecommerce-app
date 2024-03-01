@@ -47,12 +47,12 @@ function Header() {
 }
 
 export default Header;
-const Border = styled.div`
-  width: 80%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
-  margin: 0 auto;
-`;
+// const Border = styled.div`
+//   width: 80%;
+//   height: 1px;
+//   background-color: rgba(255, 255, 255, 0.3);
+//   margin: 0 auto;
+// `;
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
