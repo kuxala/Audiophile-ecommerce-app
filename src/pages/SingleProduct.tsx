@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { MyContext } from "../App";
 import LastSection from "../components/LastSection";
 import ProductShocase from "../components/ProductShocase";
+import Counter from "../components/Counter";
 
 export default function SingleProduct() {
   const { product } = useParams();
@@ -31,7 +32,7 @@ export default function SingleProduct() {
                   <ProductDescription>{x.description}</ProductDescription>
                   <Price>${x.price}</Price>
                   <AddTo>
-                    <Input type="number" />
+                    <Counter />
                     <Button className="yellow-btn">Add to cart</Button>
                   </AddTo>
                 </RightCol>
@@ -77,8 +78,6 @@ export default function SingleProduct() {
               </Section>
             </WholeComponent>
           );
-        } else {
-          return <h1>Product not found</h1>;
         }
       })}
 

@@ -17,6 +17,7 @@ function App() {
   });
   const [hamburger, sethamburger] = useState<boolean>(false);
   const [card, setCard] = useState<boolean>(false);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -43,6 +44,8 @@ function App() {
         screenSize,
         card,
         setCard,
+        counter,
+        setCounter,
       }}
     >
       {screenSize.width > 868 ? (
