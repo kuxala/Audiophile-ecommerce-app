@@ -1,15 +1,38 @@
 import styled from "styled-components";
 import { useState } from "react";
-
+import { useForm, SubmitHandler } from "react-hook-form";
+import { Link } from "react-router-dom";
+type Props = {
+  name: string;
+  mail: string;
+  number: number;
+  address: string;
+  zip: number;
+  city: string;
+  country: string;
+  emoney: number;
+  pin: number;
+};
 export default function Checkout() {
   const [checkbox, setCheckbox] = useState<string>("money");
   const border = {
     border: "1px solid #d87d4a",
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Props>();
+
+  const onSubmit: SubmitHandler<Props> = (data) => console.log(data);
+
   return (
     <div style={{ backgroundColor: "#F1F1F1" }}>
-      <GoBack>Go Back</GoBack>
-      <WholeComponent>
+      <GoBack>
+        <Link to="/">Go Back</Link>
+      </GoBack>
+      <WholeComponent onSubmit={handleSubmit(onSubmit)}>
         <Component>
           <CheckoutH1>CHECKOUT</CheckoutH1>
           <div>
@@ -18,38 +41,87 @@ export default function Checkout() {
             <EachDiv>
               <FirstInput>
                 <SmallP>Name</SmallP>
-                <Input placeholder="Alexei Ward" />
+                <Input
+                  placeholder="Alexei Ward"
+                  type="text"
+                  {...register("name", {
+                    required: "Name is required",
+                  })}
+                />
+                {errors.name && <Errors>{errors.name.message}</Errors>}
               </FirstInput>
               <SecondInput>
                 <SmallP>Email address</SmallP>
-                <Input placeholder="alexei@mail.com" />
+                <Input
+                  placeholder="alexei@mail.com"
+                  {...(register("mail"),
+                  {
+                    required: true,
+                  })}
+                />
+                {errors.mail && <Errors>{errors.mail.message}</Errors>}
               </SecondInput>
             </EachDiv>
 
             <div>
               <SmallP>Phone number</SmallP>
-              <Input placeholder="+005 232 123 123" />
+              <Input
+                placeholder="+005 232 123 123"
+                type="number"
+                {...register("number", {
+                  required: "Phone is required",
+                })}
+              />
+              {errors.number && <Errors>{errors.number.message}</Errors>}
             </div>
           </div>
           <div>
             <HeaderH1>Shipping info</HeaderH1>
             <div>
               <SmallP>Address</SmallP>
-              <Input placeholder="Vakes Avenue" />
+              <Input
+                placeholder="Vakes Avenue"
+                type="text"
+                {...register("address", {
+                  required: "Address is requred",
+                })}
+              />
+              {errors.address && <Errors>{errors.address.message}</Errors>}
             </div>
             <EachDiv>
               <FirstInput>
                 <SmallP>Zip Code</SmallP>
-                <Input placeholder="9400" />
+                <Input
+                  placeholder="9400"
+                  type="number"
+                  {...register("zip", {
+                    required: "Zip is required",
+                  })}
+                />
+                {errors.zip && <Errors>{errors.zip.message}</Errors>}
               </FirstInput>
               <SecondInput>
                 <SmallP>City</SmallP>
-                <Input placeholder="Tbilisi" />
+                <Input
+                  placeholder="Tbilisi"
+                  type="text"
+                  {...register("city", {
+                    required: "City is required",
+                  })}
+                />
+                {errors.city && <Errors>{errors.city.message}</Errors>}
               </SecondInput>
             </EachDiv>
             <div>
               <SmallP>Country</SmallP>
-              <Input placeholder="Georgia" />
+              <Input
+                placeholder="Georgia"
+                type="string"
+                {...register("country", {
+                  required: "Country is required",
+                })}
+              />
+              {errors.country && <Errors>{errors.country.message}</Errors>}
             </div>
           </div>
 
@@ -77,11 +149,29 @@ export default function Checkout() {
               <EachDiv>
                 <FirstInput>
                   <SmallP>e-Money Number</SmallP>
-                  <Input placeholder="2312314123" />
+                  <Input
+                    placeholder="2312314123"
+                    {...register("emoney", {
+                      required: "eMoney Number is required",
+                    })}
+                    type="number"
+                  />
+                  {checkbox === "money"
+                    ? errors.emoney && <Errors>{errors.emoney.message}</Errors>
+                    : null}
                 </FirstInput>
                 <SecondInput>
                   <SmallP>e-Money Pin</SmallP>
-                  <Input placeholder="8723" />
+                  <Input
+                    placeholder="8723"
+                    {...register("pin", {
+                      required: "eMoney Pin is required",
+                    })}
+                    type="number"
+                  />
+                  {checkbox === "money"
+                    ? errors.pin && <Errors>{errors.pin.message}</Errors>
+                    : null}
                 </SecondInput>
               </EachDiv>
             ) : null}
@@ -113,13 +203,23 @@ export default function Checkout() {
               <GrandTotal>$Price</GrandTotal>
             </Divs>
           </AllDivs>
-          <Button>Continue & Pay</Button>
+          <Button type="submit">Continue & Pay</Button>
         </Summary>
       </WholeComponent>
     </div>
   );
 }
 
+const Errors = styled.div`
+  color: #cd2c2c;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.214px;
+  padding-bottom: 10px;
+`;
 const FirstInput = styled.div`
   width: 50%;
 `;
@@ -141,6 +241,9 @@ const Button = styled.button`
   line-height: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 const AllDivs = styled.div`
   display: flex;
@@ -254,7 +357,7 @@ const SmallP = styled.p`
   line-height: normal;
   letter-spacing: -0.214px;
 `;
-const WholeComponent = styled.div`
+const WholeComponent = styled.form`
   background: #f1f1f1;
   min-height: 100vh;
   display: flex;

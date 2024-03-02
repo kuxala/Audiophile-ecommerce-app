@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 function Header() {
   const context = useContext(MyContext);
-  console.log(context.hamburger);
+
   return (
     <>
       <header
