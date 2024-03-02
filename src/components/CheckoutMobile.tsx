@@ -1,12 +1,34 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+type Props = {
+  name: string;
+  mail: string;
+  number: number;
+  address: string;
+  zip: number;
+  city: string;
+  country: string;
+  emoney: number;
+  pin: number;
+};
+
 export default function CheckoutMobile() {
   const [checkbox, setCheckbox] = useState<string>("money");
   const border = {
     border: "1px solid #d87d4a",
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Props>();
+
+  const onSubmit: SubmitHandler<Props> = (data) => console.log(data);
+
   return (
-    <WholeComponent>
+    <WholeComponent onSubmit={handleSubmit(onSubmit)}>
       <GoBack>Go Back</GoBack>
       <Component>
         <CheckoutH1>CHECKOUT</CheckoutH1>
@@ -15,35 +37,81 @@ export default function CheckoutMobile() {
 
           <EachDiv>
             <SmallP>Name</SmallP>
-            <Input placeholder="Alexei Ward" />
+            <Input
+              placeholder="Alexei Ward"
+              type="text"
+              {...register("name", {
+                required: "Name is required",
+              })}
+            />
+            {errors.name && <Errors>{errors.name.message}</Errors>}
           </EachDiv>
 
           <div>
             <SmallP>Email address</SmallP>
-            <Input placeholder="alexei@mail.com" />
+            <Input
+              placeholder="alexei@mail.com"
+              {...(register("mail"),
+              {
+                required: true,
+              })}
+            />
           </div>
           <div>
             <SmallP>Phone number</SmallP>
-            <Input placeholder="+005 232 123 123" />
+            <Input
+              placeholder="+005 232 123 123"
+              type="number"
+              {...register("number", {
+                required: "Phone is required",
+              })}
+            />
+            {errors.number && <Errors>{errors.number.message}</Errors>}
           </div>
         </div>
         <div>
           <HeaderH1>Shipping info</HeaderH1>
           <div>
             <SmallP>your address</SmallP>
-            <Input placeholder="Vakes Avenue" />
+            <Input
+              placeholder="Vakes Avenue"
+              {...register("address", {
+                required: "Address is requred",
+              })}
+            />
+            {errors.address && <Errors>{errors.address.message}</Errors>}
           </div>
           <div>
             <SmallP>Zip code</SmallP>
-            <Input placeholder="9500" />
+            <Input
+              placeholder="9500"
+              {...register("zip", {
+                required: "Zip is required",
+              })}
+            />
+            {errors.zip && <Errors>{errors.zip.message}</Errors>}
           </div>
           <div>
             <SmallP>City</SmallP>
-            <Input placeholder="Tbilisi" />
+            <Input
+              placeholder="Tbilisi"
+              type="text"
+              {...register("city", {
+                required: "City is required",
+              })}
+            />
+            {errors.city && <Errors>{errors.city.message}</Errors>}
           </div>
           <div>
             <SmallP>Country</SmallP>
-            <Input placeholder="Georgia" />
+            <Input
+              placeholder="Georgia"
+              type="string"
+              {...register("country", {
+                required: "Country is required",
+              })}
+            />
+            {errors.country && <Errors>{errors.country.message}</Errors>}
           </div>
         </div>
 
@@ -71,11 +139,29 @@ export default function CheckoutMobile() {
             <EachDiv>
               <div>
                 <SmallP>e-Money Number</SmallP>
-                <Input placeholder="2312314123" />
+                <Input
+                  placeholder="2312314123"
+                  {...register("emoney", {
+                    required: "eMoney Number is required",
+                  })}
+                  type="number"
+                />
+                {checkbox === "money"
+                  ? errors.emoney && <Errors>{errors.emoney.message}</Errors>
+                  : null}
               </div>
               <div>
                 <SmallP>e-Money Pin</SmallP>
-                <Input placeholder="8723" />
+                <Input
+                  placeholder="8723"
+                  {...register("pin", {
+                    required: "eMoney Pin is required",
+                  })}
+                  type="number"
+                />
+                {checkbox === "money"
+                  ? errors.pin && <Errors>{errors.pin.message}</Errors>
+                  : null}
               </div>
             </EachDiv>
           ) : null}
@@ -107,11 +193,22 @@ export default function CheckoutMobile() {
             <GrandTotal>$Price</GrandTotal>
           </Divs>
         </AllDivs>
-        <Button>Continue & Pay</Button>
+        <Button type="submit">Continue & Pay</Button>
       </Summary>
     </WholeComponent>
   );
 }
+
+const Errors = styled.div`
+  color: #cd2c2c;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.214px;
+  padding-bottom: 10px;
+`;
 const Button = styled.button`
   margin-top: 32px;
   margin-bottom: 64px;
@@ -236,15 +333,9 @@ const SmallP = styled.p`
   line-height: normal;
   letter-spacing: -0.214px;
 `;
-const WholeComponent = styled.div`
+const WholeComponent = styled.form`
   background: #fafafa;
   min-height: 100vh;
-
-  @media only screen and (min-width: 768px) {
-    display: flex;
-    margin: 0 auto;
-    width: 70%;
-  }
 `;
 const HeaderH1 = styled.h1`
   padding-bottom: 16px;
