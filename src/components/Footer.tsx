@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ScrollUp from "./ScrollUp";
+import { useContext } from "react";
+import { MyContext } from "../App";
 
 function Footer() {
+  const context = useContext(MyContext);
   function scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling animation
+      behavior: "smooth",
     });
   }
+
+  // const addcolor = {
+  //   color: "yellow",
+  // };
+
   return (
     <>
       <Footerr>
@@ -18,7 +26,13 @@ function Footer() {
             <Nav>
               <Ul>
                 <Link to="/" style={{ color: "white" }} onClick={scrollToTop}>
-                  <li>Home</li>
+                  <li
+                    onClick={() => {
+                      context.setActiveLink("home");
+                    }}
+                  >
+                    Home
+                  </li>
                 </Link>
 
                 <Link
@@ -26,7 +40,13 @@ function Footer() {
                   style={{ color: "white" }}
                   onClick={scrollToTop}
                 >
-                  <li>Headphones </li>
+                  <li
+                    onClick={() => {
+                      context.setActiveLink("headphones");
+                    }}
+                  >
+                    Headphones{" "}
+                  </li>
                 </Link>
 
                 <Link
@@ -34,14 +54,26 @@ function Footer() {
                   style={{ color: "white" }}
                   onClick={scrollToTop}
                 >
-                  <li>Speakers </li>
+                  <li
+                    onClick={() => {
+                      context.setActiveLink("speakers");
+                    }}
+                  >
+                    Speakers
+                  </li>
                 </Link>
                 <Link
                   to="/earphones"
                   style={{ color: "white" }}
                   onClick={scrollToTop}
                 >
-                  <li>Earphones </li>
+                  <li
+                    onClick={() => {
+                      context.setActiveLink("earphones");
+                    }}
+                  >
+                    Earphones
+                  </li>
                 </Link>
               </Ul>
               <ScrollUp />

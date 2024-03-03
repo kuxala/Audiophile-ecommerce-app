@@ -18,6 +18,7 @@ function App() {
   const [hamburger, sethamburger] = useState<boolean>(false);
   const [card, setCard] = useState<boolean>(false);
   const [counter, setCounter] = useState(0);
+  const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -46,6 +47,8 @@ function App() {
         setCard,
         counter,
         setCounter,
+        activeLink,
+        setActiveLink,
       }}
     >
       {screenSize.width > 868 ? (
@@ -56,7 +59,6 @@ function App() {
       {card ? <Card /> : null}
       {hamburger ? null : <Routers websiteData={websiteData} />}
       {hamburger ? <Menu /> : null}
-      {/* <ScrollUp /> */}
       <Footer />
     </MyContext.Provider>
   );

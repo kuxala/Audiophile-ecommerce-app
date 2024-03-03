@@ -17,7 +17,7 @@ export default function SingleProduct() {
       {context.websiteData.map((x: any) => {
         if (x.slug == product) {
           return (
-            <WholeComponent>
+            <WholeComponent>  
               <GoBack>Go Back</GoBack>
               <Component>
                 <LeftCol>

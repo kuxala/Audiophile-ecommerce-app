@@ -5,7 +5,7 @@ import { MyContext } from "../App";
 
 function Headphones({ websiteData }: any) {
   const context = useContext(MyContext);
-  console.log(context.hamburger);
+
   return (
     <>
       <Header>
