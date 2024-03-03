@@ -250,14 +250,14 @@ const FeaturesDescription = styled.div`
 const Button = styled.button`
   width: 50%;
 `;
-const Input = styled.input`
-  width: 40%;
-  height: 48px;
-  flex-shrink: 0;
-  background: #f1f1f1;
-  border: 0;
-  padding: 20px;
-`;
+// const Input = styled.input`
+//   width: 40%;
+//   height: 48px;
+//   flex-shrink: 0;
+//   background: #f1f1f1;
+//   border: 0;
+//   padding: 20px;
+// `;
 
 const AddTo = styled.div`
   display: flex;

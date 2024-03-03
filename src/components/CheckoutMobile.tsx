@@ -18,6 +18,7 @@ export default function CheckoutMobile() {
   const border = {
     border: "1px solid #d87d4a",
   };
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const {
     register,
@@ -25,7 +26,7 @@ export default function CheckoutMobile() {
     formState: { errors },
   } = useForm<Props>();
 
-  const onSubmit: SubmitHandler<Props> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Props> = (data) => setFormSubmitted(true);
 
   return (
     <WholeComponent onSubmit={handleSubmit(onSubmit)}>

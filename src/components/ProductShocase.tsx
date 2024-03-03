@@ -2,6 +2,13 @@ import styled from "styled-components";
 import "../styles/ProductShowcase.css";
 import { Link } from "react-router-dom";
 
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Smooth scrolling animation
+  });
+}
+
 const ImageAnimation = styled.img`
   width: 150px;
   transition: width 0.3s ease;
@@ -23,7 +30,9 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              <Link to="/headphones">Shop</Link>
+              <Link to="/headphones" onClick={scrollToTop}>
+                Shop
+              </Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"
@@ -41,7 +50,9 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              <Link to="/speakers">Shop</Link>
+              <Link to="/speakers" onClick={scrollToTop}>
+                Shop
+              </Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"
@@ -59,7 +70,9 @@ function ProductShocase() {
 
           <div>
             <p className="product-shop-a">
-              <Link to="/earphones">Shop</Link>
+              <Link to="/earphones" onClick={scrollToTop}>
+                Shop
+              </Link>
               <img
                 src="../../assets/shared/desktop/icon-arrow-right.svg"
                 className="right-arrow"

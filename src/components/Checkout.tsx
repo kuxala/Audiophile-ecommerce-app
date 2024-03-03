@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+import FinishPage from "./FinishPage";
 type Props = {
   name: string;
   mail: string;
@@ -15,6 +16,7 @@ type Props = {
 };
 export default function Checkout() {
   const [checkbox, setCheckbox] = useState<string>("money");
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const border = {
     border: "1px solid #d87d4a",
   };
@@ -25,7 +27,7 @@ export default function Checkout() {
     formState: { errors },
   } = useForm<Props>();
 
-  const onSubmit: SubmitHandler<Props> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
 
   return (
     <div style={{ backgroundColor: "#F1F1F1" }}>
@@ -48,11 +50,13 @@ export default function Checkout() {
                     required: "Name is required",
                   })}
                 />
+
                 {errors.name && <Errors>{errors.name.message}</Errors>}
               </FirstInput>
               <SecondInput>
                 <SmallP>Email address</SmallP>
                 <Input
+                  type="email "
                   placeholder="alexei@mail.com"
                   {...(register("mail"),
                   {
@@ -206,6 +210,7 @@ export default function Checkout() {
           <Button type="submit">Continue & Pay</Button>
         </Summary>
       </WholeComponent>
+      {formSubmitted ? <FinishPage /> : null}
     </div>
   );
 }

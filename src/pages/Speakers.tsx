@@ -115,6 +115,7 @@ const ComponentH1 = styled.h1`
   }
 `;
 const ComponentP = styled.p`
+  padding-top: 24px;
   padding-bottom: 24px;
   color: #000;
   text-align: center;
