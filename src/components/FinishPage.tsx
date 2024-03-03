@@ -33,11 +33,10 @@ export default function FinishPage() {
             <h2>$$$$</h2>
           </RightCol>
         </Card>
-        <Button>
-          <Link to="/" style={{ color: "#fff" }}>
-            Back to Home
-          </Link>
-        </Button>
+
+        <Link to="/" style={{ color: "#fff" }}>
+          <Button>Back to Home</Button>
+        </Link>
       </Container>
     </Overlay>
   );
@@ -73,6 +72,7 @@ const Card = styled.div`
 `;
 
 const Button = styled.button`
+  width: 100%;
   margin-top: 48px;
   height: 48px;
   border: 0;
