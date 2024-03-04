@@ -19,6 +19,7 @@ function App() {
   const [card, setCard] = useState<boolean>(false);
   const [counter, setCounter] = useState(0);
   const [activeLink, setActiveLink] = useState("home");
+  const [cart, setCart] = useState<any>([]);
 
   useEffect(() => {
     const updateScreenSize = () => {
@@ -49,6 +50,8 @@ function App() {
         setCounter,
         activeLink,
         setActiveLink,
+        cart,
+        setCart,
       }}
     >
       {screenSize.width > 868 ? (

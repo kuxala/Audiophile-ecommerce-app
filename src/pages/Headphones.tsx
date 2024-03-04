@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ProductShocase from "../components/ProductShocase";
 import { useContext } from "react";
 import { MyContext } from "../App";
+import { Link } from "react-router-dom";
 
 function Headphones({ websiteData }: any) {
   const context = useContext(MyContext);
@@ -24,7 +25,10 @@ function Headphones({ websiteData }: any) {
                 <HeaderP>New Product</HeaderP>
                 <ComponentH1>{x.name}</ComponentH1>
                 <ComponentP>{x.description}</ComponentP>
-                <Button className="yellow-btn center-button">
+                <Button
+                  className="yellow-btn center-button"
+                  to={`/headphones/${x.slug}`}
+                >
                   See product
                 </Button>
               </RightCol>
@@ -135,7 +139,7 @@ const ComponentP = styled.p`
     max-width: 445px;
   }
 `;
-const Button = styled.button`
+const Button = styled(Link)`
   margin-bottom: 50px;
   @media only screen and (min-width: 768px) {
     text-align: left;
