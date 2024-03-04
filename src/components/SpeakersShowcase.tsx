@@ -1,6 +1,13 @@
+import { Link } from "react-router-dom";
 import "../styles/SpeakersShowcase.css";
 
 function SpeakersShowcase() {
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling animation
+    });
+  }
   return (
     <>
       <div className="speakers">
@@ -18,14 +25,25 @@ function SpeakersShowcase() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <button className="black-btn button">See product</button>
+            <Link
+              className="black-btn button"
+              to="/speakers/zx9-speaker"
+              onClick={scrollToTop}
+            >
+              See product
+            </Link>
           </div>
         </div>
-
         <div className="speaker-z7">
           <div className="center-z7">
             <h1 className="speakers-z7-h1">ZX7 SPEAKER</h1>
-            <button className="white-btn ">See product</button>
+            <Link
+              className="white-btn button"
+              to="/speakers/zx7-speaker"
+              onClick={scrollToTop}
+            >
+              See product
+            </Link>
           </div>
         </div>
 
@@ -42,7 +60,13 @@ function SpeakersShowcase() {
             <div className="speaker-xy1-container">
               <div className="center-earphones">
                 <h1 className="speakers-z7-h1">YX1 EARPHONES</h1>
-                <button className="white-btn ">see product</button>
+                <Link
+                  className="white-btn button"
+                  to="/earphones/yx1-earphones"
+                  onClick={scrollToTop}
+                >
+                  see product
+                </Link>
               </div>
             </div>
           </div>

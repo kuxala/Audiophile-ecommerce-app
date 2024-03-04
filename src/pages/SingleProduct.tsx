@@ -8,16 +8,14 @@ import Counter from "../components/Counter";
 
 export default function SingleProduct() {
   const { product } = useParams();
-  console.log("Params: ", product);
   const context = useContext(MyContext);
-  // console.log("Context: ", context.websiteData);
 
   return (
     <>
       {context.websiteData.map((x: any) => {
         if (x.slug == product) {
           return (
-            <WholeComponent>  
+            <WholeComponent>
               <GoBack>Go Back</GoBack>
               <Component>
                 <LeftCol>
@@ -33,7 +31,14 @@ export default function SingleProduct() {
                   <Price>${x.price}</Price>
                   <AddTo>
                     <Counter />
-                    <Button className="yellow-btn">Add to cart</Button>
+                    <Button
+                      className="yellow-btn"
+                      onClick={() => {
+                        context.addToCart();
+                      }}
+                    >
+                      Add to cart
+                    </Button>
                   </AddTo>
                 </RightCol>
               </Component>

@@ -6,6 +6,7 @@ import Routers from "./routers/Routers";
 import Menu from "./components/Menu";
 import { createContext, useState, useEffect } from "react";
 import Card from "./components/Card";
+import "animate.css";
 
 export const MyContext = createContext<any>(null);
 
@@ -17,7 +18,7 @@ function App() {
   });
   const [hamburger, sethamburger] = useState<boolean>(false);
   const [card, setCard] = useState<boolean>(false);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
   const [activeLink, setActiveLink] = useState("home");
   const [cart, setCart] = useState<any>([]);
 
@@ -36,6 +37,9 @@ function App() {
     };
   }, []);
 
+  const addToCart = (product: any) => {
+    setCart([...cart, product]);
+  };
   return (
     <MyContext.Provider
       value={{
@@ -52,6 +56,7 @@ function App() {
         setActiveLink,
         cart,
         setCart,
+        addToCart,
       }}
     >
       {screenSize.width > 868 ? (
