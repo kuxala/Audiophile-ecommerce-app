@@ -18,7 +18,7 @@ function App() {
   });
   const [hamburger, sethamburger] = useState<boolean>(false);
   const [card, setCard] = useState<boolean>(false);
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState<number[]>([1]);
   const [activeLink, setActiveLink] = useState("home");
   const [cart, setCart] = useState<any>([]);
 
@@ -38,7 +38,24 @@ function App() {
   }, []);
 
   const addToCart = (product: any) => {
-    setCart([...cart, product]);
+    const selectedProduct = websiteData.find(
+      (item: any) => item.slug === product
+    );
+    if (selectedProduct) {
+      const quantity = counter[counter.length - 1];
+      const itemsToAdd = Array.from(
+        { length: quantity },
+        () => selectedProduct
+      );
+      setCart([...cart, ...itemsToAdd]);
+    }
+  };
+  const calculateTotal = () => {
+    let total = 0;
+    cart.forEach((item: any) => {
+      total += item.price;
+    });
+    return total.toFixed(2);
   };
   return (
     <MyContext.Provider
@@ -57,6 +74,7 @@ function App() {
         cart,
         setCart,
         addToCart,
+        calculateTotal,
       }}
     >
       {screenSize.width > 868 ? (

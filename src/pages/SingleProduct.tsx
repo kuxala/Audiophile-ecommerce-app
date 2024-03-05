@@ -10,12 +10,16 @@ export default function SingleProduct() {
   const { product } = useParams();
   const context = useContext(MyContext);
 
+  const addToCart = () => {
+    context.addToCart(product);
+  };
+
   return (
     <>
-      {context.websiteData.map((x: any) => {
+      {context.websiteData.map((x: any, item: number) => {
         if (x.slug == product) {
           return (
-            <WholeComponent>
+            <WholeComponent key={item}>
               <GoBack>Go Back</GoBack>
               <Component>
                 <LeftCol>
@@ -31,12 +35,7 @@ export default function SingleProduct() {
                   <Price>${x.price}</Price>
                   <AddTo>
                     <Counter />
-                    <Button
-                      className="yellow-btn"
-                      onClick={() => {
-                        context.addToCart();
-                      }}
-                    >
+                    <Button className="yellow-btn" onClick={addToCart}>
                       Add to cart
                     </Button>
                   </AddTo>
@@ -67,10 +66,10 @@ export default function SingleProduct() {
                     })}
                   </TheBox>
                 </SmallSection>
-                {context.websiteData.map((x: any) => {
+                {context.websiteData.map((x: any, index: number) => {
                   if (x.slug == product) {
                     return (
-                      <Images>
+                      <Images key={index}>
                         <TwoSide>
                           <Img1 src={x.gallery.first.desktop} />
                           <Img2 src={x.gallery.second.desktop} />

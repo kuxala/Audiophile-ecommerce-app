@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FinishPage from "./FinishPage";
+import { MyContext } from "../App";
 type Props = {
   name: string;
   mail: string;
@@ -17,17 +18,20 @@ type Props = {
 export default function Checkout() {
   const [checkbox, setCheckbox] = useState<string>("money");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { product } = useParams();
+  const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
+  const context = useContext(MyContext);
+  const vat = Math.round(context.calculateTotal() * 0.2);
+  const shipping = 50;
+  const grandTotal = Math.round(context.calculateTotal() + vat + shipping);
   const border = {
     border: "1px solid #d87d4a",
   };
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Props>();
-
-  const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
 
   return (
     <div style={{ backgroundColor: "#F1F1F1" }}>
@@ -56,7 +60,7 @@ export default function Checkout() {
               <SecondInput>
                 <SmallP>Email address</SmallP>
                 <Input
-                  type="email "
+                  type="email"
                   placeholder="alexei@mail.com"
                   {...(register("mail"),
                   {
@@ -185,14 +189,17 @@ export default function Checkout() {
         <Summary>
           <SummaryH1>Summary</SummaryH1>
           <div>
-            <div>Cards</div>
-            <div>Cards</div>
+            <ul>
+              {context.cart.map((x: any, index: number) => {
+                return <li key={index}>{x.name}</li>;
+              })}
+            </ul>
           </div>
 
           <AllDivs>
             <Divs>
               <LeftP>Total</LeftP>
-              <RightP>$Price</RightP>
+              <RightP>{context.calculateTotal()}</RightP>
             </Divs>
             <Divs>
               <LeftP>Shipping</LeftP>
@@ -200,11 +207,11 @@ export default function Checkout() {
             </Divs>
             <Divs>
               <LeftP>VAT(INCLUDED)</LeftP>
-              <RightP>$Price</RightP>
+              <RightP>${vat}</RightP>
             </Divs>
             <Divs>
               <LeftP>Grand Total</LeftP>
-              <GrandTotal>$Price</GrandTotal>
+              <GrandTotal>${grandTotal}</GrandTotal>
             </Divs>
           </AllDivs>
           <Button type="submit">Continue & Pay</Button>

@@ -3,26 +3,25 @@ import { MyContext } from "../App";
 import { useContext } from "react";
 
 export default function Counter() {
-  const context = useContext(MyContext);
+  const { counter, setCounter } = useContext(MyContext);
+
+  const handleIncrement = () => {
+    const quantity = 1;
+    setCounter([...counter, ...Array(quantity).fill(1)]);
+  };
+
+  const handleDecrement = () => {
+    if (counter.length > 1) {
+      setCounter(counter.slice(0, -1));
+    }
+  };
 
   return (
     <>
       <Div>
-        <Minus
-          onClick={() => {
-            context.setCounter(context.counter - 1);
-          }}
-        >
-          -
-        </Minus>
-        <Number>{context.counter}</Number>
-        <Plus
-          onClick={() => {
-            context.setCounter(context.counter + 1);
-          }}
-        >
-          +
-        </Plus>
+        <Minus onClick={handleDecrement}>-</Minus>
+        <Number>{counter.length}</Number>
+        <Plus onClick={handleIncrement}>+</Plus>
       </Div>
     </>
   );

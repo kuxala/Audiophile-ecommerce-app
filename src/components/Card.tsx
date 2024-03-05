@@ -2,12 +2,14 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { MyContext } from "../App";
 import { Link } from "react-router-dom";
+import Counter from "./Counter";
 
 type OverlayProps = {
   showOverlay: boolean;
 };
 export default function Card() {
   const context = useContext(MyContext);
+  console.log(context.cart);
 
   return (
     <>
@@ -19,15 +21,29 @@ export default function Card() {
       />
       <CardContainer>
         <TopDiv>
-          <Cardh1>Card (number)</Cardh1>
-          <RemoveAll>Remove all</RemoveAll>
+          <Cardh1>Card ({context.cart.length})</Cardh1>
+          <RemoveAll onClick={() => context.setCart([])}>Remove all</RemoveAll>
         </TopDiv>
         <div>
-          <div>Card</div>
+          {context.cart.map((item: any, index: number) => (
+            <CartItem key={index}>
+              <ImageBackground>
+                <img src={item.image.desktop} width="45px" />
+              </ImageBackground>
+
+              <CenterDiv>
+                <ItemName>{item.name}</ItemName>
+                <Price>{item.price}</Price>
+              </CenterDiv>
+              <div>
+                <Counter />
+              </div>
+            </CartItem>
+          ))}
         </div>
         <TotalDiv>
           <TotalP>Total</TotalP>
-          <TotalPBlack>$Number</TotalPBlack>
+          <TotalPBlack>${context.calculateTotal()}</TotalPBlack>
         </TotalDiv>
 
         <Link to="/checkout">
@@ -43,6 +59,56 @@ export default function Card() {
     </>
   );
 }
+
+const CenterDiv = styled.div`
+  /* margin-left: -100px; */
+  padding: 8px 16px;
+`;
+const ItemName = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+`;
+const Price = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 178.571% */
+  opacity: 0.5;
+`;
+const ImageBackground = styled.div`
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const CardDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const CartItemName = styled.p`
+  /* Styles */
+`;
+
+const CartItemPrice = styled.p`
+  /* Styles */
+`;
 const CardContainer = styled.div`
   position: absolute;
   width: 80%;
