@@ -189,11 +189,22 @@ export default function Checkout() {
         <Summary>
           <SummaryH1>Summary</SummaryH1>
           <div>
-            <ul>
-              {context.cart.map((x: any, index: number) => {
-                return <li key={index}>{x.name}</li>;
-              })}
-            </ul>
+            <div>
+              {context.cart.map((item: any, index: number) => (
+                <CartItem key={index}>
+                  <CenterDiv>
+                    <ImageBackground>
+                      <img src={item.image.desktop} width="45px" />
+                    </ImageBackground>
+                    <TextDiv>
+                      <ItemName>{item.name}</ItemName>
+                      <Price>{item.price}</Price>
+                    </TextDiv>
+                  </CenterDiv>
+                  <div>{context.counter}x</div>
+                </CartItem>
+              ))}
+            </div>
           </div>
 
           <AllDivs>
@@ -221,7 +232,51 @@ export default function Checkout() {
     </div>
   );
 }
+const TextDiv = styled.div`
+  flex-direction: column;
+`;
+const CenterDiv = styled.div`
+  /* padding-left: -100px; */
+  padding: 8px 16px;
+  display: flex;
+  gap: 16px;
+  text-align: left;
+  align-items: center;
+`;
+const ItemName = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+`;
+const Price = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 178.571% */
+  opacity: 0.5;
+`;
+const ImageBackground = styled.div`
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+`;
 const Errors = styled.div`
   color: #cd2c2c;
   font-family: Manrope;

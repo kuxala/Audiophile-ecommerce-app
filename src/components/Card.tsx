@@ -91,24 +91,12 @@ const ImageBackground = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const CardDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
 const CartItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const CartItemName = styled.p`
-  /* Styles */
-`;
-
-const CartItemPrice = styled.p`
-  /* Styles */
-`;
 const CardContainer = styled.div`
   position: absolute;
   width: 80%;
@@ -134,13 +122,8 @@ const Overlay = styled.div<OverlayProps>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Adjust the alpha value to control the darkness */
-  z-index: 999; /* Ensure the overlay is above other content */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   display: ${({ showOverlay }) => (showOverlay ? "block" : "none")};
 `;
 const Button = styled.button`

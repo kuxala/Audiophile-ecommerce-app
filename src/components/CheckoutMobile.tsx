@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { MyContext } from "../App";
+import FinishPage from "./FinishPage";
+import { useParams } from "react-router-dom";
 type Props = {
   name: string;
   mail: string;
@@ -15,18 +18,21 @@ type Props = {
 
 export default function CheckoutMobile() {
   const [checkbox, setCheckbox] = useState<string>("money");
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  // const { product } = useParams();
+  const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
+  const context = useContext(MyContext);
+  const vat = Math.round(context.calculateTotal() * 0.2);
+  const shipping = 50;
+  const grandTotal = Math.round(context.calculateTotal() + vat + shipping);
   const border = {
     border: "1px solid #d87d4a",
   };
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Props>();
-
-  const onSubmit: SubmitHandler<Props> = (data) => setFormSubmitted(true);
 
   return (
     <WholeComponent onSubmit={handleSubmit(onSubmit)}>
@@ -172,14 +178,28 @@ export default function CheckoutMobile() {
       <Summary>
         <SummaryH1>Summary</SummaryH1>
         <div>
-          <div>Cards</div>
-          <div>Cards</div>
+          <div>
+            {context.cart.map((item: any, index: number) => (
+              <CartItem key={index}>
+                <CenterDiv>
+                  <ImageBackground>
+                    <img src={item.image.desktop} width="45px" />
+                  </ImageBackground>
+                  <TextDiv>
+                    <ItemName>{item.name}</ItemName>
+                    <Price>{item.price}</Price>
+                  </TextDiv>
+                </CenterDiv>
+                <div>{context.counter}x</div>
+              </CartItem>
+            ))}
+          </div>
         </div>
 
         <AllDivs>
           <Divs>
             <LeftP>Total</LeftP>
-            <RightP>$Price</RightP>
+            <RightP>{context.calculateTotal()}</RightP>
           </Divs>
           <Divs>
             <LeftP>Shipping</LeftP>
@@ -187,19 +207,65 @@ export default function CheckoutMobile() {
           </Divs>
           <Divs>
             <LeftP>VAT(INCLUDED)</LeftP>
-            <RightP>$Price</RightP>
+            <RightP>${vat}</RightP>
           </Divs>
           <Divs>
             <LeftP>Grand Total</LeftP>
-            <GrandTotal>$Price</GrandTotal>
+            <GrandTotal>${grandTotal}</GrandTotal>
           </Divs>
         </AllDivs>
         <Button type="submit">Continue & Pay</Button>
+
+        {formSubmitted ? <FinishPage /> : null}
       </Summary>
     </WholeComponent>
   );
 }
+const TextDiv = styled.div`
+  flex-direction: column;
+`;
+const CenterDiv = styled.div`
+  /* padding-left: -100px; */
+  padding: 8px 16px;
+  display: flex;
+  gap: 16px;
+  text-align: left;
+  align-items: center;
+`;
+const ItemName = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+`;
+const Price = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 178.571% */
+  opacity: 0.5;
+`;
+const ImageBackground = styled.div`
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+`;
 const Errors = styled.div`
   color: #cd2c2c;
   font-family: Manrope;

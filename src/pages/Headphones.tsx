@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import ProductShocase from "../components/ProductShocase";
-import { useContext } from "react";
-import { MyContext } from "../App";
 import { Link } from "react-router-dom";
 
 function Headphones({ websiteData }: any) {
-  const context = useContext(MyContext);
+  // const context = useContext(MyContext);
 
   return (
     <>
