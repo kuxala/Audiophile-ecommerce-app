@@ -10,9 +10,9 @@ export default function SingleProduct() {
   const { product } = useParams();
   const context = useContext(MyContext);
 
-  const addToCart = () => {
-    context.addToCart(product);
-  };
+  // const addToCart = () => {
+  //   context.addToCart(product);
+  // };
 
   return (
     <>
