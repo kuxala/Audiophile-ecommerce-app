@@ -25,7 +25,7 @@ export default function SingleProduct() {
                 <LeftCol>
                   <MainImage
                     src={x.slug === product ? x.image.desktop : null}
-                    width="100%"
+                    width="90%"
                   />
                 </LeftCol>
                 <RightCol>
@@ -116,7 +116,12 @@ const MainImage = styled.img`
 
   @media only screen and (min-width: 768px) {
     max-width: 540px;
-    height: 560px;
+    /* min-height: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
   }
 `;
 const Img1 = styled.img`
@@ -273,7 +278,9 @@ const WholeComponent = styled.div`
   padding: 16px 24px;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    padding: 0 165px;
+    /* padding: 0 165px; */
+    width: 90%;
+    margin: 0 auto;
   }
 `;
 const Component = styled.div`

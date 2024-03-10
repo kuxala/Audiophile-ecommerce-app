@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { MyContext } from "../App";
 import FinishPage from "./FinishPage";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 type Props = {
   name: string;
   mail: string;
@@ -22,9 +22,7 @@ export default function CheckoutMobile() {
   // const { product } = useParams();
   const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
   const context = useContext(MyContext);
-  const vat = Math.round(context.calculateTotal() * 0.2);
-  const shipping = 50;
-  const grandTotal = Math.round(context.calculateTotal() + vat + shipping);
+
   const border = {
     border: "1px solid #d87d4a",
   };
@@ -207,11 +205,11 @@ export default function CheckoutMobile() {
           </Divs>
           <Divs>
             <LeftP>VAT(INCLUDED)</LeftP>
-            <RightP>${vat}</RightP>
+            <RightP>${context.vat}</RightP>
           </Divs>
           <Divs>
             <LeftP>Grand Total</LeftP>
-            <GrandTotal>${grandTotal}</GrandTotal>
+            <GrandTotal>${context.total + context.vat + 50}</GrandTotal>
           </Divs>
         </AllDivs>
         <Button type="submit">Continue & Pay</Button>

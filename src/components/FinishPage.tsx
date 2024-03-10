@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { MyContext } from "../App";
+import { useContext } from "react";
 
 export default function FinishPage() {
+  const context = useContext(MyContext);
   return (
     <Overlay>
       <Container>
@@ -24,13 +27,25 @@ export default function FinishPage() {
         <Card>
           <LeftCol>
             <div>
-              icon
-              <p>Name</p>
+              {context.cart.map((item: any, index: number) => (
+                <CartItem key={index}>
+                  <CenterDiv>
+                    <ImageBackground>
+                      <img src={item.image.desktop} width="45px" />
+                    </ImageBackground>
+                    <TextDiv>
+                      <ItemName>{item.name}</ItemName>
+                      <Price>{item.price}</Price>
+                    </TextDiv>
+                  </CenterDiv>
+                  <div>{context.counter}x</div>
+                </CartItem>
+              ))}
             </div>
           </LeftCol>
           <RightCol>
-            <p>Grand total</p>
-            <h2>$$$$</h2>
+            <Grant>Grand total</Grant>
+            <GrandTotal>${context.total}</GrandTotal>
           </RightCol>
         </Card>
 
@@ -41,6 +56,70 @@ export default function FinishPage() {
     </Overlay>
   );
 }
+
+const Grant = styled.h1`
+  color: #fff;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  opacity: 0.5;
+`;
+
+const GrandTotal = styled.p`
+  color: #fff;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+`;
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+`;
+const TextDiv = styled.div`
+  flex-direction: column;
+`;
+const CenterDiv = styled.div`
+  /* padding-left: -100px; */
+  padding: 0 16px;
+  display: flex;
+  gap: 16px;
+  text-align: left;
+  align-items: center;
+`;
+const ItemName = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+`;
+const Price = styled.p`
+  color: #000;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 178.571% */
+  opacity: 0.5;
+`;
+const ImageBackground = styled.div`
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Overlay = styled.div`
   position: fixed;
@@ -67,7 +146,7 @@ const RightCol = styled.div`
   color: #fff;
 `;
 const Card = styled.div`
-  height: 200px;
+  min-height: 200px;
   display: flex;
 `;
 
@@ -98,6 +177,11 @@ const Container = styled.div`
   background: #fff;
   position: absolute;
   left: 30%;
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    left: 0;
+    margin: 0 auto;
+  }
 `;
 const H1 = styled.h1`
   padding-bottom: 24px;

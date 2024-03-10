@@ -31,14 +31,17 @@ function Header() {
               <Li>Earphones</Li>
             </Link>
           </Ul>
-          <img
-            src="../../assets/shared/desktop/icon-cart.svg"
-            width="23px"
-            height="30px"
-            onClick={() => {
-              context.setCard(!context.card);
-            }}
-          />
+          <div>
+            <Counter>{context.cart.length}</Counter>
+            <img
+              src="../../assets/shared/desktop/icon-cart.svg"
+              width="23px"
+              height="30px"
+              onClick={() => {
+                context.setCard(!context.card);
+              }}
+            />
+          </div>
         </Nav>
         {/* <Border></Border> */}
       </header>
@@ -53,6 +56,17 @@ export default Header;
 //   background-color: rgba(255, 255, 255, 0.3);
 //   margin: 0 auto;
 // `;
+
+const Counter = styled.div`
+  background-color: #d87d4a;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+`;
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;

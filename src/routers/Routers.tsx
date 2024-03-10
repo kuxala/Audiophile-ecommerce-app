@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { MyContext } from "../App";
 import Checkout from "../components/Checkout";
 import CheckoutMobile from "../components/CheckoutMobile";
+import FinishPage from "../components/FinishPage";
 
 function Routers({ websiteData }: any) {
   const context = useContext(MyContext);

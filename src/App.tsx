@@ -50,13 +50,16 @@ function App() {
       setCart([...cart, ...itemsToAdd]);
     }
   };
-  const calculateTotal = () => {
+  const calculateTotal: any = () => {
     let total = 0;
     cart.forEach((item: any) => {
       total += item.price;
     });
     return total.toFixed(2);
   };
+  const vat = Number(Math.round(calculateTotal() * 0.2));
+  const total = Number(calculateTotal());
+
   return (
     <MyContext.Provider
       value={{
@@ -75,6 +78,8 @@ function App() {
         setCart,
         addToCart,
         calculateTotal,
+        total,
+        vat,
       }}
     >
       {screenSize.width > 868 ? (
