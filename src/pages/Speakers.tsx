@@ -3,7 +3,7 @@ import ProductShocase from "../components/ProductShocase";
 import { Link } from "react-router-dom";
 function Speakers({ websiteData }: any) {
   return (
-    <>
+    <div className="animate__animated animate__fadeIn">
       <Header>
         <HeaderH1>Speakers</HeaderH1>
       </Header>
@@ -31,7 +31,7 @@ function Speakers({ websiteData }: any) {
           );
         })}
       <ProductShocase />
-    </>
+    </div>
   );
 }
 export default Speakers;

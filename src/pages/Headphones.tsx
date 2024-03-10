@@ -6,7 +6,7 @@ function Headphones({ websiteData }: any) {
   // const context = useContext(MyContext);
 
   return (
-    <>
+    <div className="animate__animated animate__fadeIn">
       <Header>
         <HeaderH1>Headphones</HeaderH1>
       </Header>
@@ -34,7 +34,7 @@ function Headphones({ websiteData }: any) {
           );
         })}
       <ProductShocase />
-    </>
+    </div>
   );
 }
 export default Headphones;

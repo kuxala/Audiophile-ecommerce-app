@@ -25,7 +25,7 @@ export default function SingleProduct() {
                 <LeftCol>
                   <MainImage
                     src={x.slug === product ? x.image.desktop : null}
-                    width="90%"
+                    width="100%"
                   />
                 </LeftCol>
                 <RightCol>
@@ -302,6 +302,7 @@ const RightCol = styled.div`
   padding-top: 32px;
   @media only screen and (min-width: 768px) {
     max-width: 445px;
+    width: 50%;
     margin: 0 auto;
   }
 `;

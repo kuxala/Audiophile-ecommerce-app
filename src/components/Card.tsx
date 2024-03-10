@@ -9,7 +9,6 @@ type OverlayProps = {
 };
 export default function Card() {
   const context = useContext(MyContext);
-  console.log(context.cart);
 
   return (
     <>
@@ -19,7 +18,7 @@ export default function Card() {
           context.setCard(!context.card);
         }}
       />
-      <CardContainer>
+      <CardContainer className="animate__animated animate__fadeIn">
         <TopDiv>
           <Cardh1>Card ({context.cart.length})</Cardh1>
           <RemoveAll onClick={() => context.setCart([])}>Remove all</RemoveAll>

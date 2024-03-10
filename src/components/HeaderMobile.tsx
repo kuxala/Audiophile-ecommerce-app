@@ -5,7 +5,6 @@ import { useContext } from "react";
 
 function HeaderMobile({ hamburger, sethamburger }: any) {
   const context = useContext(MyContext);
-  console.log(context.card);
   return (
     <>
       <header>

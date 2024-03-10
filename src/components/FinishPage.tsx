@@ -50,7 +50,7 @@ export default function FinishPage() {
         </Card>
 
         <Link to="/" style={{ color: "#fff" }}>
-          <Button>Back to Home</Button>
+          <Button onClick={() => context.setCart([])}>Back to Home</Button>
         </Link>
       </Container>
     </Overlay>
@@ -144,6 +144,7 @@ const RightCol = styled.div`
   border-radius: 0px 8px 8px 0px;
   background: #000;
   color: #fff;
+  padding: 24px 16px;
 `;
 const Card = styled.div`
   min-height: 200px;
