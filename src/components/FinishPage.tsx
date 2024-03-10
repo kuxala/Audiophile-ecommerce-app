@@ -48,7 +48,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,7 +97,6 @@ const Container = styled.div`
   border-radius: 8px;
   background: #fff;
   position: absolute;
-  top: 200px;
   left: 30%;
 `;
 const H1 = styled.h1`

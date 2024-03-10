@@ -22,8 +22,7 @@ export default function Checkout() {
   const onSubmit: SubmitHandler<Props> = () => setFormSubmitted(true);
   const context = useContext(MyContext);
   const vat = Math.round(context.calculateTotal() * 0.2);
-  const shipping = 50;
-  const grandTotal = Math.round(context.calculateTotal() + vat + shipping);
+  const grandTotal = Math.round(context.calculateTotal());
   const border = {
     border: "1px solid #d87d4a",
   };
@@ -222,7 +221,7 @@ export default function Checkout() {
             </Divs>
             <Divs>
               <LeftP>Grand Total</LeftP>
-              <GrandTotal>${grandTotal}</GrandTotal>
+              <GrandTotal>${grandTotal + 50 + vat}</GrandTotal>
             </Divs>
           </AllDivs>
           <Button type="submit">Continue & Pay</Button>
